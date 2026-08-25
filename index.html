@@ -2004,6 +2004,15 @@
         }
     }
 
+    #popup-backdrop #containerProjetoDestino {
+        transition: all 0.3s ease;
+        grid-column: span 2;
+    }
+
+    #popup-backdrop #containerProjetoDestino .field-group {
+        margin-top: 4px;
+    }
+
     @media only screen and (max-width:480px) {
         .loginInput {
             width: 160px;
@@ -3415,6 +3424,7 @@
                         </div>
                     </div>
 
+
                     <!-- Widget Parâmetros -->
                     <div class="widget-inner">
                         <div class="widget-header">
@@ -3598,404 +3608,422 @@
                                         <option value="145">TT SERVICOS</option>
                                     </select>
                                 </div>
-                                <div class="field-group">
-                                    <label>Projeto de Destino: <span class="required">*</span></label>
-                                    <select id="projetoDestinoCliente" class="chzn-select"
-                                        data-placeholder="-- Selecione o Projeto de Destino --" style="width:100%;">
-                                        <option value="">-- Selecione o Projeto de Destino --</option>
-                                        <option value="1">SEBRAE</option>
-                                        <option value="2">TCDF</option>
-                                        <option value="3">BRASAL</option>
-                                        <option value="4">DEMO - POC CODEBA</option>
-                                        <option value="5">DETRAN-RJ</option>
-                                        <option value="6">ANEEL</option>
-                                        <option value="7">FINANCEIRO</option>
-                                        <option value="8">POSTAL</option>
-                                        <option value="9">RTCM</option>
-                                        <option value="10">CRA-RJ</option>
-                                        <option value="11">CPB</option>
-                                        <option value="12">CATALOGAÇÃO SEST-SENAT DF</option>
-                                        <option value="13">SENADO</option>
-                                        <option value="14">CONTROLE DE PRONTUÁRIOS, ATOS - RECEBIDOS E DIGITALIZADOS
-                                        </option>
-                                        <option value="15">GUARDA SEST-SENAT PORTO VELHO</option>
-                                        <option value="16">JACOBY FERNANDES &amp; REOLON ADVOGADOS ASSOCIADOS</option>
-                                        <option value="17">PROMED</option>
-                                        <option value="18">MUTUA</option>
-                                        <option value="19">CONFEA</option>
-                                        <option value="20">CFMV</option>
-                                        <option value="21">BARRO ALTO</option>
-                                        <option value="22">SEADPREV</option>
-                                        <option value="23">GESTÃO DOCUMENTAL</option>
-                                        <option value="24">DERDF</option>
-                                        <option value="25">Proflora</option>
-                                        <option value="26">TRT10</option>
-                                        <option value="27">FUNDAÇÃO PROJETO RONDON</option>
-                                        <option value="28">SERPRO</option>
-                                        <option value="29">DPF</option>
-                                        <option value="30">UNASLAF (GUARDA)</option>
-                                        <option value="31">FUNAI</option>
-                                        <option value="32">IGEPREV</option>
-                                        <option value="33">SESGO</option>
-                                        <option value="34">SISTEL</option>
-                                        <option value="35">MONTREAL</option>
-                                        <option value="36">MDH</option>
-                                        <option value="37">MTB</option>
-                                        <option value="38">ANM</option>
-                                        <option value="39">CNPQ</option>
-                                        <option value="40">ELETRONORTE</option>
-                                        <option value="41">IPREV-DF</option>
-                                        <option value="42">SAUDESIM</option>
-                                        <option value="43">MONTREAL INFORMATICA</option>
-                                        <option value="44">COLOG</option>
-                                        <option value="45">DFPC</option>
-                                        <option value="46">BNDES</option>
-                                        <option value="47">ICOB</option>
-                                        <option value="48">ANS-SP</option>
-                                        <option value="49">VIVA</option>
-                                        <option value="50">MMFDH-COMISSAO</option>
-                                        <option value="51">ABDI</option>
-                                        <option value="52">REGIUS</option>
-                                        <option value="53">SES-DF</option>
-                                        <option value="54">TECAR</option>
-                                        <option value="55">SINDJUS</option>
-                                        <option value="56">SICOOB</option>
-                                        <option value="57">PRF</option>
-                                        <option value="58">LABOR</option>
-                                        <option value="59">IORTO</option>
-                                        <option value="60">INTELIGENCIA-XXI</option>
-                                        <option value="61">GRUPO TCI</option>
-                                        <option value="62">CDRT</option>
-                                        <option value="63">CDRB</option>
-                                        <option value="64">ATIVOS</option>
-                                        <option value="65">FUNASA</option>
-                                        <option value="66">TCI</option>
-                                        <option value="67">PRONTUÁRIOS</option>
-                                        <option value="68">PNUD-BR</option>
-                                        <option value="69">ACERVO GERAL</option>
-                                        <option value="70">AIH</option>
-                                        <option value="71">BANCO DE LEITE – BLH</option>
-                                        <option value="72">BANCO DE SANGUE</option>
-                                        <option value="73">CENTRO DE ESTUDOS</option>
-                                        <option value="74">FARMÁCIA</option>
-                                        <option value="75">FOLHA DE PONTO</option>
-                                        <option value="76">FONOAUDIOLOGIA</option>
-                                        <option value="77">GINECOLOGIA</option>
-                                        <option value="78">RAIO X</option>
-                                        <option value="79">LABORATÓRIO</option>
-                                        <option value="80">LACTÁRIO</option>
-                                        <option value="81">MATERNIDADE</option>
-                                        <option value="82">NOTA FISCAL</option>
-                                        <option value="83">OBSTETRÍCIA</option>
-                                        <option value="84">OFTALMOLOGIA</option>
-                                        <option value="85">PROJETO VICE DIREÇÃO DE PESQUISA</option>
-                                        <option value="86">PRONTO ATENDIMENTO</option>
-                                        <option value="87">PSICOLOGIA</option>
-                                        <option value="88">UNIDADE DE ACONDICIONAMENTO</option>
-                                        <option value="89">BRAZILSHIP (CAIXAS)</option>
-                                        <option value="90">BRAZILSHIP (MIDIA)</option>
-                                        <option value="91">BS CORRETORES</option>
-                                        <option value="92">ONU MULHERES</option>
-                                        <option value="93">TRADE</option>
-                                        <option value="94">CELEO REDES</option>
-                                        <option value="95">PGM-RJ</option>
-                                        <option value="96">CVM</option>
-                                        <option value="97">CORREIO BRAZILIENSE</option>
-                                        <option value="98">RM CONSULTORIA</option>
-                                        <option value="99">INTO-RJ</option>
-                                        <option value="100">SOSDOCS</option>
-                                        <option value="101">CEMIG-CEB</option>
-                                        <option value="102">VERTICAL</option>
-                                        <option value="103">RG2</option>
-                                        <option value="104">34 OFICIO-RJ</option>
-                                        <option value="105">FOX ENGENHARIA</option>
-                                        <option value="106">INSTITUTO ODEON</option>
-                                        <option value="107">CEB HOLDING</option>
-                                        <option value="108">CNI</option>
-                                        <option value="109">RM</option>
-                                        <option value="110">SAÚDE BRB</option>
-                                        <option value="111">ONCOCLINICA</option>
-                                        <option value="112">BRB SEGUROS</option>
-                                        <option value="113">BRBCARD</option>
-                                        <option value="114">SERRA-ES</option>
-                                        <option value="115">FENAE</option>
-                                        <option value="116">ONCO VIDA</option>
-                                        <option value="117">ODEON-RJ</option>
-                                        <option value="118">UNESCO</option>
-                                        <option value="119">PETROBRÁS</option>
-                                        <option value="120">LASA-RJ</option>
-                                        <option value="121">NORSUL</option>
-                                        <option value="122">FSFSS</option>
-                                        <option value="123">VITABEL</option>
-                                        <option value="124">PLASTIKA</option>
-                                        <option value="125">CONAB</option>
-                                        <option value="126">ALIANÇA</option>
-                                        <option value="127">RIOPET</option>
-                                        <option value="128">BEM VIVER</option>
-                                        <option value="129">BIOCARDIOS</option>
-                                        <option value="130">VILA RICA</option>
-                                        <option value="131">ABR TELECOM</option>
-                                        <option value="132">CEB LAJEADO</option>
-                                        <option value="133">MULIER</option>
-                                        <option value="134">CARDIOSUL</option>
-                                        <option value="135">EMGEA</option>
-                                        <option value="136">IATE CLUBE</option>
-                                        <option value="137">RODRIGO-RJ</option>
-                                        <option value="138">CME</option>
-                                        <option value="139">BANCO BRB - MATRIZ</option>
-                                        <option value="140">DEMO</option>
-                                        <option value="141">ANM NACIONAL - REGIONAL SP</option>
-                                        <option value="142">GREENLEAF</option>
-                                        <option value="143">PABLO SOLEDADE</option>
-                                        <option value="144">ANCHIETA</option>
-                                        <option value="145">UNFPA</option>
-                                        <option value="146">C. MARTINS ADVOGADOS</option>
-                                        <option value="147">SM21 ENGENHARIA E CONSTRUÇÕES S.A</option>
-                                        <option value="148">WIZ BPO-SP</option>
-                                        <option value="149">XS5</option>
-                                        <option value="150">WIZ BPO-BA</option>
-                                        <option value="151">FENAG</option>
-                                        <option value="152">TJMA</option>
-                                        <option value="153">ACNUR</option>
-                                        <option value="154">ANM NACIONAL - REGIONAL RJ</option>
-                                        <option value="155">ANM NACIONAL - REGIONAL SC</option>
-                                        <option value="156">ANM NACIONAL - REGIONAL MS</option>
-                                        <option value="157">ANM NACIONAL - REGIONAL RS</option>
-                                        <option value="158">ANM NACIONAL - REGIONAL PR</option>
-                                        <option value="159">INPI-AH</option>
-                                        <option value="160">SEBRAE-ES</option>
-                                        <option value="161">GEAP AUTOGESTÃO EM SAÚDE</option>
-                                        <option value="162">G S H - CORP PARTICIPACOES S.A</option>
-                                        <option value="163">DPU</option>
-                                        <option value="164">BAHIAGÁS</option>
-                                        <option value="165">COT CLÍNICA ORTOPÉDICA TATUAPE S.A</option>
-                                        <option value="166">SPI</option>
-                                        <option value="167">BANCO BRB - AGENCIA TERRAÇO</option>
-                                        <option value="168">METRICAS SOS</option>
-                                        <option value="169">ANM NACIONAL - REGIONAL MG</option>
-                                        <option value="170">ANM NACIONAL - REGIONAL ES</option>
-                                        <option value="171">COB CLÍNICA ORTOPÉDICA BROOKLIN LTDA</option>
-                                        <option value="172">IGESDF - INSTITUTO DE GESTÃO ESTRATÉGICA DE SAÚDE DO
-                                            DISTRITO FEDERAL</option>
-                                        <option value="173">IGESDF - HOSPITAL DE BASE</option>
-                                        <option value="174">IGESDF - HOSPITAL REGIONAL DE SANTA MARIA</option>
-                                        <option value="175">IGESDF - UPA SOBRADINHO</option>
-                                        <option value="176">IGESDF - UPA PLANALTINA</option>
-                                        <option value="177">IGESDF - UPA BRAZLÂNDIA</option>
-                                        <option value="178">IGESDF - UPA CEILÂNDIA</option>
-                                        <option value="179">IGESDF - UPA CEILÂNDIA II</option>
-                                        <option value="180">IGESDF - UPA SAMAMBAIA</option>
-                                        <option value="181">IGESDF - UPA VICENTE PIRES</option>
-                                        <option value="182">IGESDF - UPA NUCLEO BANDEIRANTE</option>
-                                        <option value="183">IGESDF - UPA RIACHO FUNDO II</option>
-                                        <option value="184">IGESDF - UPA RECANTO DAS EMAS</option>
-                                        <option value="185">IGESDF - UPA SÃO SEBASTIÃO</option>
-                                        <option value="186">IGESDF - UPA PARANOÁ</option>
-                                        <option value="187">IGESDF - UPA GAMA</option>
-                                        <option value="188">IGESDF - PO 700</option>
-                                        <option value="189">IGESDF - CENTRAL DE LOGÍSTICA - SIA</option>
-                                        <option value="190">SECRETARIA DE ADMINISTRAÇÃO DO ESTADO DO PIAUÍ – SEAD-PI
-                                        </option>
-                                        <option value="191">FUNDAÇÃO PIAUÍ PREVIDÊNCIA</option>
-                                        <option value="192">COMPANHIA DE PROCESSAMENTO DE DADOS DO ESTADO DE SÃO PAULO -
-                                            PRODESP</option>
-                                        <option value="193">DEPARTAMENTO ESTADUAL DE TRÂNSITO DE SÃO PAULO - DETRAN-SP
-                                        </option>
-                                        <option value="194">APCEF – ASSOCIAÇÃO DE PESSOAL DA CAIXA ECONÔMICA FEDERAL
-                                        </option>
-                                        <option value="195">SERPRO - CERTIFICADOS DIGITAIS</option>
-                                        <option value="196">EMGEA - POC</option>
-                                        <option value="197">AGENERSA - GESTÃO DOCUMENTAL</option>
-                                        <option value="198">AGENERSA - PROJETOS DE ENGENHARIA</option>
-                                        <option value="199">ACCOR HOTELARIA S.A.</option>
-                                        <option value="200">XS5 - BENS IMÓVEIS</option>
-                                        <option value="201">XS5 - BENS MÓVEIS LEVES</option>
-                                        <option value="202">XS5 - BENS MÓVEIS PESADOS</option>
-                                        <option value="203">SEGUP</option>
-                                        <option value="204">SESPA</option>
-                                        <option value="205">SECRETARIA DE ESTADO DA EDUCAÇÃO DO PIAUÍ - SEDUC-PI
-                                        </option>
-                                        <option value="206">ASSOCIAÇÃO PETROBRAS DE SAÚDE - APS</option>
-                                        <option value="207">CÂMARA MUNICIPAL DE MACEIÓ</option>
-                                        <option value="208">SERVIÇO SOCIAL DA INDÚSTRIA - DEPARTAMENTO NACIONAL- SESI-DN
-                                        </option>
-                                        <option value="209">LOJAS AMERICANAS - SP</option>
-                                        <option value="210">ORGANIZAÇÃO DAS NAÇÕES UNIDAS PARA AGRICULTURA E
-                                            ALIMENTAÇÃO-FAO</option>
-                                        <option value="211">PROCURADORIA GERAL DO ESTADO DO PIAUÍ - PGE-PI</option>
-                                        <option value="212">PREFEITURA DE ABADIÂNIA - GO</option>
-                                        <option value="213">AGÊNCIA GOIANA DE INFRAESTRUTURA E TRANSPORTES - GOINFRA
-                                        </option>
-                                        <option value="214">SECRETARIA DE DESENVOLVIMENTO SOCIAL DE GOIÁS - SEDS
-                                        </option>
-                                        <option value="215">UNIDADE SESC SEDE</option>
-                                        <option value="216">UNIDADE SESC GUARÁ</option>
-                                        <option value="217">UNIDADE SESC 504 SUL</option>
-                                        <option value="218">UNIDADE SESC PRESIDENTE DUTRA</option>
-                                        <option value="219">UNIDADE SESC TAGUATINGA NORTE</option>
-                                        <option value="220">UNIDADE SESC TAGUATINGA SUL</option>
-                                        <option value="221">UNIDADE SESC CEILÂNDIA</option>
-                                        <option value="222">UNIDADE SESC GAMA</option>
-                                        <option value="223">UNIDADE SESC 913 SUL</option>
-                                        <option value="224">ASSOCIAÇÃO BRASILEIRA DE PESQUISA E INOVAÇÃO INDUSTRIAL –
-                                            EMBRAPII</option>
-                                        <option value="225">DIGITALIZAÇÃO-CERTIFICADA</option>
-                                        <option value="226">VISUPLAC</option>
-                                        <option value="227">SERVIÇO SOCIAL DA INDÚSTRIA - SESI DISTRITO FEDERAL</option>
-                                        <option value="228">COMERCIAL</option>
-                                        <option value="229">HORTIFRUTI</option>
-                                        <option value="230">SERVIÇO SOCIAL DA INDÚSTRIA - SESI ACRE</option>
-                                        <option value="231">SERVIÇO SOCIAL DA INDÚSTRIA - SESI ALAGOAS</option>
-                                        <option value="232">SERVIÇO SOCIAL DA INDÚSTRIA - SESI AMAZONAS</option>
-                                        <option value="233">SERVIÇO SOCIAL DA INDÚSTRIA - SESI AMAPÁ</option>
-                                        <option value="234">SERVIÇO SOCIAL DA INDÚSTRIA - SESI BAHIA</option>
-                                        <option value="235">SERVIÇO SOCIAL DA INDÚSTRIA - SESI CEARÁ</option>
-                                        <option value="236">SERVIÇO SOCIAL DA INDÚSTRIA - SESI ESPÍRITO SANTO</option>
-                                        <option value="237">SERVIÇO SOCIAL DA INDÚSTRIA - SESI GOIÁS</option>
-                                        <option value="238">SERVIÇO SOCIAL DA INDÚSTRIA - SESI MARANHÃO</option>
-                                        <option value="239">SERVIÇO SOCIAL DA INDÚSTRIA - SESI MATO GROSSO</option>
-                                        <option value="240">SERVIÇO SOCIAL DA INDÚSTRIA - SESI PARÁ</option>
-                                        <option value="241">SERVIÇO SOCIAL DA INDÚSTRIA - SESI PARAÍBA</option>
-                                        <option value="242">SERVIÇO SOCIAL DA INDÚSTRIA - SESI PERNAMBUCO</option>
-                                        <option value="243">SERVIÇO SOCIAL DA INDÚSTRIA - SESI RONDÔNIA</option>
-                                        <option value="244">SERVIÇO SOCIAL DA INDÚSTRIA - SESI RORAIMA</option>
-                                        <option value="245">SERVIÇO SOCIAL DA INDÚSTRIA - SESI SANTA CATARINA</option>
-                                        <option value="246">SERVIÇO SOCIAL DA INDÚSTRIA - SESI SERGIPE</option>
-                                        <option value="247">SERVIÇO SOCIAL DA INDÚSTRIA - SESI TOCANTINS</option>
-                                        <option value="248">SERVIÇO SOCIAL DA INDÚSTRIA - SESI MATO GROSSO DO SUL
-                                        </option>
-                                        <option value="249">SERVIÇO SOCIAL DA INDÚSTRIA - SESI PIAUI</option>
-                                        <option value="250">SERVIÇO SOCIAL DA INDÚSTRIA - SESI MINAS GERAIS</option>
-                                        <option value="251">SERVIÇO SOCIAL DA INDÚSTRIA - SESI RIO GRANDE DO NORTE
-                                        </option>
-                                        <option value="252">IGESDF - BASE DE DADOS VIRTUAL</option>
-                                        <option value="253">PROJETO 1</option>
-                                        <option value="254">PROJETO 2</option>
-                                        <option value="255">PROJETO 3</option>
-                                        <option value="256">PROJETO 4</option>
-                                        <option value="257">PREFEITURA MUNICIPAL DE SANTO ANTÔNIO DO DESCOBERTO</option>
-                                        <option value="258">ANATOMIA PATOLÓGICA</option>
-                                        <option value="259">SECRETARIA DE SEGURANÇA PÚBLICA DO ESTADO DO PIAUÍ</option>
-                                        <option value="260">FACULDADE UNIPROCESSUS - UNIDADE ASA SUL</option>
-                                        <option value="261">FACULDADE UNIPROCESSUS - UNIDADE AGUAS CLARAS</option>
-                                        <option value="262">POLICIA RODOVIÁRIA FEDERAL DO RIO GRANDE DO SUL</option>
-                                        <option value="263">GRUPO EQUATORIAL ENERGIA RIO GRANDE DO SUL</option>
-                                        <option value="264">EMGEA - EMPRESA GESTORA DE ATIVOS</option>
-                                        <option value="265">SESC – ADMINISTRAÇÃO REGIONAL NO ESTADO DA BAHIA</option>
-                                        <option value="266">COMPANHIA URBANIZADORA DA NOVA CAPITAL DO BRASIL - NOVACAP
-                                        </option>
-                                        <option value="267">HOSPITAL MILITAR DE ÁREA DE BRASÍLIA</option>
-                                        <option value="268">SECRETARIA DE ESTADO DA ASSISTÊNCIA SOCIAL, TRABALHO E
-                                            DIREITOS HUMANOS</option>
-                                        <option value="269">PROJETO X</option>
-                                        <option value="270">UNIDADE SESC MÓVEL</option>
-                                        <option value="271">ASSOCIAÇÃO NACIONAL DOS TRANSPORTADORES FERROVIÁRIOS - ANTF
-                                        </option>
-                                        <option value="272">CONSELHO REGIONAL DE ENGENHARIA E AGRONOMIA DO DISTRITO
-                                            FEDERAL - CREA-DF</option>
-                                        <option value="273">PROVA DE CONCEITO - SES DF</option>
-                                        <option value="274">POC - MINISTÉRIO DA EDUCAÇÃO</option>
-                                        <option value="275">SESI-SENAI-SP</option>
-                                        <option value="276">CONSELHO NACIONAL DO SESI</option>
-                                        <option value="277">SEMPRE ALERTA GESTAO EMPRESARIAL E SERVICOS GERAIS</option>
-                                        <option value="278">LIGA ENGENHARIA</option>
-                                        <option value="279">CREA-ES</option>
-                                        <option value="280">HOME ASSISTANCE LTDA</option>
-                                        <option value="281">CONSELHO FEDERAL DE FARMACIA</option>
-                                        <option value="282">CONSELHO FEDERAL DE FISIOTERAPIA E TERAPIA OCUPACIONAL -
-                                            COFFITO</option>
-                                        <option value="283">CBTU - COMPANHIA BRASILEIRA DE TRENS URBANOS</option>
-                                        <option value="284">CRMV-ES</option>
-                                        <option value="285">CMA CGM DO BRASIL AGENCIA MARITIMA LTDA</option>
-                                        <option value="286">OITAVO REGISTRO CIVIL DA CAPITAL RJ</option>
-                                        <option value="287">EMGEA CONFERÊNCIA</option>
-                                        <option value="288">DELLY KOSMETIC COMÉRCIO E INDÚSTRIA LTDA</option>
-                                        <option value="289">HC-UFG</option>
-                                        <option value="290">HUB-UNB</option>
-                                        <option value="291">HUMAP-UFMS</option>
-                                        <option value="292">HUJM-UFMT</option>
-                                        <option value="293">HU-UFGD</option>
-                                        <option value="294">HUCFF</option>
-                                        <option value="295">IPPMG</option>
-                                        <option value="296">ME-UFRJ</option>
-                                        <option value="297">HC-UFMG</option>
-                                        <option value="298">HC-UFU</option>
-                                        <option value="299">HC-UFTM</option>
-                                        <option value="300">HUAP-UFF</option>
-                                        <option value="301">HUCAM-UFES</option>
-                                        <option value="302">HUGG-UNIRIO</option>
-                                        <option value="303">HU-UFJF</option>
-                                        <option value="304">HU-UFSCAR</option>
-                                        <option value="305">INPI</option>
-                                        <option value="306">NORTE ENERGIA S.A</option>
-                                        <option value="307">SERVIÇO FEDERAL DE PROCESSAMENTO DE DADOS</option>
-                                        <option value="308">DETRAN-DF</option>
-                                        <option value="309">CONTRATO 90 - EXPURGADAS</option>
-                                        <option value="310">TESTES PRODUTOS TI</option>
-                                        <option value="311">DOCZ</option>
-                                        <option value="312">PREF. DE GOUVELÂNDIA</option>
-                                        <option value="313">CARTASUS</option>
-                                        <option value="314">SECRETARIA DE OBRAS - RJ</option>
-                                        <option value="315">PREFEITURA DE GOIANÉSIA</option>
-                                        <option value="316">PREF. DE SÃO SIMÃO</option>
-                                        <option value="317">CÂMARA MUNICIPAL DE ALEXÂNIA</option>
-                                        <option value="318">PREF. DE INACIOLÂNDIA</option>
-                                        <option value="319">CATALOGAÇÃO</option>
-                                        <option value="320">PREF. DE BURITI ALEGRE</option>
-                                        <option value="321">PREF. DE GOUVELANDIA 2</option>
-                                        <option value="322">PREF. DE SÃO SIMÃO 2</option>
-                                        <option value="323">TRT-1ª - DIGITALIZAÇÃO</option>
-                                        <option value="324">SEOBRAS-RJ</option>
-                                        <option value="325">FEIJAO</option>
-                                        <option value="326">TRT-RJ-DIGITALIZAÇÃO</option>
-                                        <option value="327">MINISTÉRIO DA FAZENDA - DF</option>
-                                        <option value="328">TELEMEDICINA</option>
-                                        <option value="329">MINISTÉRIO DO DESENVOLVIMENTO SOCIAL E COMBATE A FOME (MDS)
-                                        </option>
-                                        <option value="330">BBTUR</option>
-                                        <option value="331">SOS DOCS</option>
-                                        <option value="332">DEMO</option>
-                                        <option value="333">DEMO2</option>
-                                        <option value="334">BSB ALIMENTOS</option>
-                                        <option value="335">GASTRO CIRURGIA</option>
-                                        <option value="336">MDS</option>
-                                        <option value="337">NOVA CASA DISTRIBUIDORA</option>
-                                        <option value="338">LOJA</option>
-                                        <option value="339">CEB</option>
-                                        <option value="340">UNASLAF (GESTÃO DOCUMENTAL)</option>
-                                        <option value="341">MPERR</option>
-                                        <option value="342">FGCOOP</option>
-                                        <option value="343">TJRO</option>
-                                        <option value="344">CADE</option>
-                                        <option value="345">PROCON</option>
-                                        <option value="346">DNIT</option>
-                                        <option value="347">ORAI</option>
-                                        <option value="348">DESCONHECIDO</option>
-                                        <option value="349">ANS-RJ</option>
-                                        <option value="350">SEELJE</option>
-                                        <option value="351">HEINEKEN</option>
-                                        <option value="352">COTTA</option>
-                                        <option value="353">PNUD</option>
-                                        <option value="354">CANDELARIA</option>
-                                        <option value="355">MINISTÉRIO DA CIDADANIA</option>
-                                        <option value="356">GEAP-RJ</option>
-                                        <option value="357">GEAP-DF</option>
-                                        <option value="358">NEOCARE</option>
-                                        <option value="359">SENAC-DF</option>
-                                        <option value="360">MJSP</option>
-                                        <option value="361">PNUD - EXPEDIENTES</option>
-                                        <option value="362">CELEO REDES - DIGITALIZAÇÃO</option>
-                                        <option value="363">SERVIÇO SOCIAL DA INDÚSTRIA - SESI RIO DE JANEIRO</option>
-                                        <option value="364">SERVIÇO SOCIAL DA INDÚSTRIA - SESI RIO GRANDE DO SUL
-                                        </option>
-                                        <option value="365">SEBRAE-MG</option>
-                                        <option value="366">POC - TESTE</option>
-                                    </select>
-                                </div>
-                                <div class="field-group grid-full">
-                                    <label>Nome do Novo Formulário: <span class="required">*</span></label>
-                                    <input type="text" id="novoNomeFormCliente"
-                                        placeholder="Informe o nome que o Form terá no projeto destino">
+                                <div id="containerProjetoDestino" style="display: none;" class="grid-full">
+                                    <div class="field-group">
+                                        <label>Projeto de Destino: <span class="required">*</span></label>
+                                        <select id="projetoDestinoCliente" class="chzn-select"
+                                            data-placeholder="-- Selecione o Projeto de Destino --" style="width:100%;">
+                                            <option value="">-- Selecione o Projeto de Destino --</option>
+                                            <option value="1">SEBRAE</option>
+                                            <option value="2">TCDF</option>
+                                            <option value="3">BRASAL</option>
+                                            <option value="4">DEMO - POC CODEBA</option>
+                                            <option value="5">DETRAN-RJ</option>
+                                            <option value="6">ANEEL</option>
+                                            <option value="7">FINANCEIRO</option>
+                                            <option value="8">POSTAL</option>
+                                            <option value="9">RTCM</option>
+                                            <option value="10">CRA-RJ</option>
+                                            <option value="11">CPB</option>
+                                            <option value="12">CATALOGAÇÃO SEST-SENAT DF</option>
+                                            <option value="13">SENADO</option>
+                                            <option value="14">CONTROLE DE PRONTUÁRIOS, ATOS - RECEBIDOS E DIGITALIZADOS
+                                            </option>
+                                            <option value="15">GUARDA SEST-SENAT PORTO VELHO</option>
+                                            <option value="16">JACOBY FERNANDES &amp; REOLON ADVOGADOS ASSOCIADOS
+                                            </option>
+                                            <option value="17">PROMED</option>
+                                            <option value="18">MUTUA</option>
+                                            <option value="19">CONFEA</option>
+                                            <option value="20">CFMV</option>
+                                            <option value="21">BARRO ALTO</option>
+                                            <option value="22">SEADPREV</option>
+                                            <option value="23">GESTÃO DOCUMENTAL</option>
+                                            <option value="24">DERDF</option>
+                                            <option value="25">Proflora</option>
+                                            <option value="26">TRT10</option>
+                                            <option value="27">FUNDAÇÃO PROJETO RONDON</option>
+                                            <option value="28">SERPRO</option>
+                                            <option value="29">DPF</option>
+                                            <option value="30">UNASLAF (GUARDA)</option>
+                                            <option value="31">FUNAI</option>
+                                            <option value="32">IGEPREV</option>
+                                            <option value="33">SESGO</option>
+                                            <option value="34">SISTEL</option>
+                                            <option value="35">MONTREAL</option>
+                                            <option value="36">MDH</option>
+                                            <option value="37">MTB</option>
+                                            <option value="38">ANM</option>
+                                            <option value="39">CNPQ</option>
+                                            <option value="40">ELETRONORTE</option>
+                                            <option value="41">IPREV-DF</option>
+                                            <option value="42">SAUDESIM</option>
+                                            <option value="43">MONTREAL INFORMATICA</option>
+                                            <option value="44">COLOG</option>
+                                            <option value="45">DFPC</option>
+                                            <option value="46">BNDES</option>
+                                            <option value="47">ICOB</option>
+                                            <option value="48">ANS-SP</option>
+                                            <option value="49">VIVA</option>
+                                            <option value="50">MMFDH-COMISSAO</option>
+                                            <option value="51">ABDI</option>
+                                            <option value="52">REGIUS</option>
+                                            <option value="53">SES-DF</option>
+                                            <option value="54">TECAR</option>
+                                            <option value="55">SINDJUS</option>
+                                            <option value="56">SICOOB</option>
+                                            <option value="57">PRF</option>
+                                            <option value="58">LABOR</option>
+                                            <option value="59">IORTO</option>
+                                            <option value="60">INTELIGENCIA-XXI</option>
+                                            <option value="61">GRUPO TCI</option>
+                                            <option value="62">CDRT</option>
+                                            <option value="63">CDRB</option>
+                                            <option value="64">ATIVOS</option>
+                                            <option value="65">FUNASA</option>
+                                            <option value="66">TCI</option>
+                                            <option value="67">PRONTUÁRIOS</option>
+                                            <option value="68">PNUD-BR</option>
+                                            <option value="69">ACERVO GERAL</option>
+                                            <option value="70">AIH</option>
+                                            <option value="71">BANCO DE LEITE – BLH</option>
+                                            <option value="72">BANCO DE SANGUE</option>
+                                            <option value="73">CENTRO DE ESTUDOS</option>
+                                            <option value="74">FARMÁCIA</option>
+                                            <option value="75">FOLHA DE PONTO</option>
+                                            <option value="76">FONOAUDIOLOGIA</option>
+                                            <option value="77">GINECOLOGIA</option>
+                                            <option value="78">RAIO X</option>
+                                            <option value="79">LABORATÓRIO</option>
+                                            <option value="80">LACTÁRIO</option>
+                                            <option value="81">MATERNIDADE</option>
+                                            <option value="82">NOTA FISCAL</option>
+                                            <option value="83">OBSTETRÍCIA</option>
+                                            <option value="84">OFTALMOLOGIA</option>
+                                            <option value="85">PROJETO VICE DIREÇÃO DE PESQUISA</option>
+                                            <option value="86">PRONTO ATENDIMENTO</option>
+                                            <option value="87">PSICOLOGIA</option>
+                                            <option value="88">UNIDADE DE ACONDICIONAMENTO</option>
+                                            <option value="89">BRAZILSHIP (CAIXAS)</option>
+                                            <option value="90">BRAZILSHIP (MIDIA)</option>
+                                            <option value="91">BS CORRETORES</option>
+                                            <option value="92">ONU MULHERES</option>
+                                            <option value="93">TRADE</option>
+                                            <option value="94">CELEO REDES</option>
+                                            <option value="95">PGM-RJ</option>
+                                            <option value="96">CVM</option>
+                                            <option value="97">CORREIO BRAZILIENSE</option>
+                                            <option value="98">RM CONSULTORIA</option>
+                                            <option value="99">INTO-RJ</option>
+                                            <option value="100">SOSDOCS</option>
+                                            <option value="101">CEMIG-CEB</option>
+                                            <option value="102">VERTICAL</option>
+                                            <option value="103">RG2</option>
+                                            <option value="104">34 OFICIO-RJ</option>
+                                            <option value="105">FOX ENGENHARIA</option>
+                                            <option value="106">INSTITUTO ODEON</option>
+                                            <option value="107">CEB HOLDING</option>
+                                            <option value="108">CNI</option>
+                                            <option value="109">RM</option>
+                                            <option value="110">SAÚDE BRB</option>
+                                            <option value="111">ONCOCLINICA</option>
+                                            <option value="112">BRB SEGUROS</option>
+                                            <option value="113">BRBCARD</option>
+                                            <option value="114">SERRA-ES</option>
+                                            <option value="115">FENAE</option>
+                                            <option value="116">ONCO VIDA</option>
+                                            <option value="117">ODEON-RJ</option>
+                                            <option value="118">UNESCO</option>
+                                            <option value="119">PETROBRÁS</option>
+                                            <option value="120">LASA-RJ</option>
+                                            <option value="121">NORSUL</option>
+                                            <option value="122">FSFSS</option>
+                                            <option value="123">VITABEL</option>
+                                            <option value="124">PLASTIKA</option>
+                                            <option value="125">CONAB</option>
+                                            <option value="126">ALIANÇA</option>
+                                            <option value="127">RIOPET</option>
+                                            <option value="128">BEM VIVER</option>
+                                            <option value="129">BIOCARDIOS</option>
+                                            <option value="130">VILA RICA</option>
+                                            <option value="131">ABR TELECOM</option>
+                                            <option value="132">CEB LAJEADO</option>
+                                            <option value="133">MULIER</option>
+                                            <option value="134">CARDIOSUL</option>
+                                            <option value="135">EMGEA</option>
+                                            <option value="136">IATE CLUBE</option>
+                                            <option value="137">RODRIGO-RJ</option>
+                                            <option value="138">CME</option>
+                                            <option value="139">BANCO BRB - MATRIZ</option>
+                                            <option value="140">DEMO</option>
+                                            <option value="141">ANM NACIONAL - REGIONAL SP</option>
+                                            <option value="142">GREENLEAF</option>
+                                            <option value="143">PABLO SOLEDADE</option>
+                                            <option value="144">ANCHIETA</option>
+                                            <option value="145">UNFPA</option>
+                                            <option value="146">C. MARTINS ADVOGADOS</option>
+                                            <option value="147">SM21 ENGENHARIA E CONSTRUÇÕES S.A</option>
+                                            <option value="148">WIZ BPO-SP</option>
+                                            <option value="149">XS5</option>
+                                            <option value="150">WIZ BPO-BA</option>
+                                            <option value="151">FENAG</option>
+                                            <option value="152">TJMA</option>
+                                            <option value="153">ACNUR</option>
+                                            <option value="154">ANM NACIONAL - REGIONAL RJ</option>
+                                            <option value="155">ANM NACIONAL - REGIONAL SC</option>
+                                            <option value="156">ANM NACIONAL - REGIONAL MS</option>
+                                            <option value="157">ANM NACIONAL - REGIONAL RS</option>
+                                            <option value="158">ANM NACIONAL - REGIONAL PR</option>
+                                            <option value="159">INPI-AH</option>
+                                            <option value="160">SEBRAE-ES</option>
+                                            <option value="161">GEAP AUTOGESTÃO EM SAÚDE</option>
+                                            <option value="162">G S H - CORP PARTICIPACOES S.A</option>
+                                            <option value="163">DPU</option>
+                                            <option value="164">BAHIAGÁS</option>
+                                            <option value="165">COT CLÍNICA ORTOPÉDICA TATUAPE S.A</option>
+                                            <option value="166">SPI</option>
+                                            <option value="167">BANCO BRB - AGENCIA TERRAÇO</option>
+                                            <option value="168">METRICAS SOS</option>
+                                            <option value="169">ANM NACIONAL - REGIONAL MG</option>
+                                            <option value="170">ANM NACIONAL - REGIONAL ES</option>
+                                            <option value="171">COB CLÍNICA ORTOPÉDICA BROOKLIN LTDA</option>
+                                            <option value="172">IGESDF - INSTITUTO DE GESTÃO ESTRATÉGICA DE SAÚDE DO
+                                                DISTRITO FEDERAL</option>
+                                            <option value="173">IGESDF - HOSPITAL DE BASE</option>
+                                            <option value="174">IGESDF - HOSPITAL REGIONAL DE SANTA MARIA</option>
+                                            <option value="175">IGESDF - UPA SOBRADINHO</option>
+                                            <option value="176">IGESDF - UPA PLANALTINA</option>
+                                            <option value="177">IGESDF - UPA BRAZLÂNDIA</option>
+                                            <option value="178">IGESDF - UPA CEILÂNDIA</option>
+                                            <option value="179">IGESDF - UPA CEILÂNDIA II</option>
+                                            <option value="180">IGESDF - UPA SAMAMBAIA</option>
+                                            <option value="181">IGESDF - UPA VICENTE PIRES</option>
+                                            <option value="182">IGESDF - UPA NUCLEO BANDEIRANTE</option>
+                                            <option value="183">IGESDF - UPA RIACHO FUNDO II</option>
+                                            <option value="184">IGESDF - UPA RECANTO DAS EMAS</option>
+                                            <option value="185">IGESDF - UPA SÃO SEBASTIÃO</option>
+                                            <option value="186">IGESDF - UPA PARANOÁ</option>
+                                            <option value="187">IGESDF - UPA GAMA</option>
+                                            <option value="188">IGESDF - PO 700</option>
+                                            <option value="189">IGESDF - CENTRAL DE LOGÍSTICA - SIA</option>
+                                            <option value="190">SECRETARIA DE ADMINISTRAÇÃO DO ESTADO DO PIAUÍ – SEAD-PI
+                                            </option>
+                                            <option value="191">FUNDAÇÃO PIAUÍ PREVIDÊNCIA</option>
+                                            <option value="192">COMPANHIA DE PROCESSAMENTO DE DADOS DO ESTADO DE SÃO
+                                                PAULO -
+                                                PRODESP</option>
+                                            <option value="193">DEPARTAMENTO ESTADUAL DE TRÂNSITO DE SÃO PAULO -
+                                                DETRAN-SP
+                                            </option>
+                                            <option value="194">APCEF – ASSOCIAÇÃO DE PESSOAL DA CAIXA ECONÔMICA FEDERAL
+                                            </option>
+                                            <option value="195">SERPRO - CERTIFICADOS DIGITAIS</option>
+                                            <option value="196">EMGEA - POC</option>
+                                            <option value="197">AGENERSA - GESTÃO DOCUMENTAL</option>
+                                            <option value="198">AGENERSA - PROJETOS DE ENGENHARIA</option>
+                                            <option value="199">ACCOR HOTELARIA S.A.</option>
+                                            <option value="200">XS5 - BENS IMÓVEIS</option>
+                                            <option value="201">XS5 - BENS MÓVEIS LEVES</option>
+                                            <option value="202">XS5 - BENS MÓVEIS PESADOS</option>
+                                            <option value="203">SEGUP</option>
+                                            <option value="204">SESPA</option>
+                                            <option value="205">SECRETARIA DE ESTADO DA EDUCAÇÃO DO PIAUÍ - SEDUC-PI
+                                            </option>
+                                            <option value="206">ASSOCIAÇÃO PETROBRAS DE SAÚDE - APS</option>
+                                            <option value="207">CÂMARA MUNICIPAL DE MACEIÓ</option>
+                                            <option value="208">SERVIÇO SOCIAL DA INDÚSTRIA - DEPARTAMENTO NACIONAL-
+                                                SESI-DN
+                                            </option>
+                                            <option value="209">LOJAS AMERICANAS - SP</option>
+                                            <option value="210">ORGANIZAÇÃO DAS NAÇÕES UNIDAS PARA AGRICULTURA E
+                                                ALIMENTAÇÃO-FAO</option>
+                                            <option value="211">PROCURADORIA GERAL DO ESTADO DO PIAUÍ - PGE-PI</option>
+                                            <option value="212">PREFEITURA DE ABADIÂNIA - GO</option>
+                                            <option value="213">AGÊNCIA GOIANA DE INFRAESTRUTURA E TRANSPORTES - GOINFRA
+                                            </option>
+                                            <option value="214">SECRETARIA DE DESENVOLVIMENTO SOCIAL DE GOIÁS - SEDS
+                                            </option>
+                                            <option value="215">UNIDADE SESC SEDE</option>
+                                            <option value="216">UNIDADE SESC GUARÁ</option>
+                                            <option value="217">UNIDADE SESC 504 SUL</option>
+                                            <option value="218">UNIDADE SESC PRESIDENTE DUTRA</option>
+                                            <option value="219">UNIDADE SESC TAGUATINGA NORTE</option>
+                                            <option value="220">UNIDADE SESC TAGUATINGA SUL</option>
+                                            <option value="221">UNIDADE SESC CEILÂNDIA</option>
+                                            <option value="222">UNIDADE SESC GAMA</option>
+                                            <option value="223">UNIDADE SESC 913 SUL</option>
+                                            <option value="224">ASSOCIAÇÃO BRASILEIRA DE PESQUISA E INOVAÇÃO INDUSTRIAL
+                                                –
+                                                EMBRAPII</option>
+                                            <option value="225">DIGITALIZAÇÃO-CERTIFICADA</option>
+                                            <option value="226">VISUPLAC</option>
+                                            <option value="227">SERVIÇO SOCIAL DA INDÚSTRIA - SESI DISTRITO FEDERAL
+                                            </option>
+                                            <option value="228">COMERCIAL</option>
+                                            <option value="229">HORTIFRUTI</option>
+                                            <option value="230">SERVIÇO SOCIAL DA INDÚSTRIA - SESI ACRE</option>
+                                            <option value="231">SERVIÇO SOCIAL DA INDÚSTRIA - SESI ALAGOAS</option>
+                                            <option value="232">SERVIÇO SOCIAL DA INDÚSTRIA - SESI AMAZONAS</option>
+                                            <option value="233">SERVIÇO SOCIAL DA INDÚSTRIA - SESI AMAPÁ</option>
+                                            <option value="234">SERVIÇO SOCIAL DA INDÚSTRIA - SESI BAHIA</option>
+                                            <option value="235">SERVIÇO SOCIAL DA INDÚSTRIA - SESI CEARÁ</option>
+                                            <option value="236">SERVIÇO SOCIAL DA INDÚSTRIA - SESI ESPÍRITO SANTO
+                                            </option>
+                                            <option value="237">SERVIÇO SOCIAL DA INDÚSTRIA - SESI GOIÁS</option>
+                                            <option value="238">SERVIÇO SOCIAL DA INDÚSTRIA - SESI MARANHÃO</option>
+                                            <option value="239">SERVIÇO SOCIAL DA INDÚSTRIA - SESI MATO GROSSO</option>
+                                            <option value="240">SERVIÇO SOCIAL DA INDÚSTRIA - SESI PARÁ</option>
+                                            <option value="241">SERVIÇO SOCIAL DA INDÚSTRIA - SESI PARAÍBA</option>
+                                            <option value="242">SERVIÇO SOCIAL DA INDÚSTRIA - SESI PERNAMBUCO</option>
+                                            <option value="243">SERVIÇO SOCIAL DA INDÚSTRIA - SESI RONDÔNIA</option>
+                                            <option value="244">SERVIÇO SOCIAL DA INDÚSTRIA - SESI RORAIMA</option>
+                                            <option value="245">SERVIÇO SOCIAL DA INDÚSTRIA - SESI SANTA CATARINA
+                                            </option>
+                                            <option value="246">SERVIÇO SOCIAL DA INDÚSTRIA - SESI SERGIPE</option>
+                                            <option value="247">SERVIÇO SOCIAL DA INDÚSTRIA - SESI TOCANTINS</option>
+                                            <option value="248">SERVIÇO SOCIAL DA INDÚSTRIA - SESI MATO GROSSO DO SUL
+                                            </option>
+                                            <option value="249">SERVIÇO SOCIAL DA INDÚSTRIA - SESI PIAUI</option>
+                                            <option value="250">SERVIÇO SOCIAL DA INDÚSTRIA - SESI MINAS GERAIS</option>
+                                            <option value="251">SERVIÇO SOCIAL DA INDÚSTRIA - SESI RIO GRANDE DO NORTE
+                                            </option>
+                                            <option value="252">IGESDF - BASE DE DADOS VIRTUAL</option>
+                                            <option value="253">PROJETO 1</option>
+                                            <option value="254">PROJETO 2</option>
+                                            <option value="255">PROJETO 3</option>
+                                            <option value="256">PROJETO 4</option>
+                                            <option value="257">PREFEITURA MUNICIPAL DE SANTO ANTÔNIO DO DESCOBERTO
+                                            </option>
+                                            <option value="258">ANATOMIA PATOLÓGICA</option>
+                                            <option value="259">SECRETARIA DE SEGURANÇA PÚBLICA DO ESTADO DO PIAUÍ
+                                            </option>
+                                            <option value="260">FACULDADE UNIPROCESSUS - UNIDADE ASA SUL</option>
+                                            <option value="261">FACULDADE UNIPROCESSUS - UNIDADE AGUAS CLARAS</option>
+                                            <option value="262">POLICIA RODOVIÁRIA FEDERAL DO RIO GRANDE DO SUL</option>
+                                            <option value="263">GRUPO EQUATORIAL ENERGIA RIO GRANDE DO SUL</option>
+                                            <option value="264">EMGEA - EMPRESA GESTORA DE ATIVOS</option>
+                                            <option value="265">SESC – ADMINISTRAÇÃO REGIONAL NO ESTADO DA BAHIA
+                                            </option>
+                                            <option value="266">COMPANHIA URBANIZADORA DA NOVA CAPITAL DO BRASIL -
+                                                NOVACAP
+                                            </option>
+                                            <option value="267">HOSPITAL MILITAR DE ÁREA DE BRASÍLIA</option>
+                                            <option value="268">SECRETARIA DE ESTADO DA ASSISTÊNCIA SOCIAL, TRABALHO E
+                                                DIREITOS HUMANOS</option>
+                                            <option value="269">PROJETO X</option>
+                                            <option value="270">UNIDADE SESC MÓVEL</option>
+                                            <option value="271">ASSOCIAÇÃO NACIONAL DOS TRANSPORTADORES FERROVIÁRIOS -
+                                                ANTF
+                                            </option>
+                                            <option value="272">CONSELHO REGIONAL DE ENGENHARIA E AGRONOMIA DO DISTRITO
+                                                FEDERAL - CREA-DF</option>
+                                            <option value="273">PROVA DE CONCEITO - SES DF</option>
+                                            <option value="274">POC - MINISTÉRIO DA EDUCAÇÃO</option>
+                                            <option value="275">SESI-SENAI-SP</option>
+                                            <option value="276">CONSELHO NACIONAL DO SESI</option>
+                                            <option value="277">SEMPRE ALERTA GESTAO EMPRESARIAL E SERVICOS GERAIS
+                                            </option>
+                                            <option value="278">LIGA ENGENHARIA</option>
+                                            <option value="279">CREA-ES</option>
+                                            <option value="280">HOME ASSISTANCE LTDA</option>
+                                            <option value="281">CONSELHO FEDERAL DE FARMACIA</option>
+                                            <option value="282">CONSELHO FEDERAL DE FISIOTERAPIA E TERAPIA OCUPACIONAL -
+                                                COFFITO</option>
+                                            <option value="283">CBTU - COMPANHIA BRASILEIRA DE TRENS URBANOS</option>
+                                            <option value="284">CRMV-ES</option>
+                                            <option value="285">CMA CGM DO BRASIL AGENCIA MARITIMA LTDA</option>
+                                            <option value="286">OITAVO REGISTRO CIVIL DA CAPITAL RJ</option>
+                                            <option value="287">EMGEA CONFERÊNCIA</option>
+                                            <option value="288">DELLY KOSMETIC COMÉRCIO E INDÚSTRIA LTDA</option>
+                                            <option value="289">HC-UFG</option>
+                                            <option value="290">HUB-UNB</option>
+                                            <option value="291">HUMAP-UFMS</option>
+                                            <option value="292">HUJM-UFMT</option>
+                                            <option value="293">HU-UFGD</option>
+                                            <option value="294">HUCFF</option>
+                                            <option value="295">IPPMG</option>
+                                            <option value="296">ME-UFRJ</option>
+                                            <option value="297">HC-UFMG</option>
+                                            <option value="298">HC-UFU</option>
+                                            <option value="299">HC-UFTM</option>
+                                            <option value="300">HUAP-UFF</option>
+                                            <option value="301">HUCAM-UFES</option>
+                                            <option value="302">HUGG-UNIRIO</option>
+                                            <option value="303">HU-UFJF</option>
+                                            <option value="304">HU-UFSCAR</option>
+                                            <option value="305">INPI</option>
+                                            <option value="306">NORTE ENERGIA S.A</option>
+                                            <option value="307">SERVIÇO FEDERAL DE PROCESSAMENTO DE DADOS</option>
+                                            <option value="308">DETRAN-DF</option>
+                                            <option value="309">CONTRATO 90 - EXPURGADAS</option>
+                                            <option value="310">TESTES PRODUTOS TI</option>
+                                            <option value="311">DOCZ</option>
+                                            <option value="312">PREF. DE GOUVELÂNDIA</option>
+                                            <option value="313">CARTASUS</option>
+                                            <option value="314">SECRETARIA DE OBRAS - RJ</option>
+                                            <option value="315">PREFEITURA DE GOIANÉSIA</option>
+                                            <option value="316">PREF. DE SÃO SIMÃO</option>
+                                            <option value="317">CÂMARA MUNICIPAL DE ALEXÂNIA</option>
+                                            <option value="318">PREF. DE INACIOLÂNDIA</option>
+                                            <option value="319">CATALOGAÇÃO</option>
+                                            <option value="320">PREF. DE BURITI ALEGRE</option>
+                                            <option value="321">PREF. DE GOUVELANDIA 2</option>
+                                            <option value="322">PREF. DE SÃO SIMÃO 2</option>
+                                            <option value="323">TRT-1ª - DIGITALIZAÇÃO</option>
+                                            <option value="324">SEOBRAS-RJ</option>
+                                            <option value="325">FEIJAO</option>
+                                            <option value="326">TRT-RJ-DIGITALIZAÇÃO</option>
+                                            <option value="327">MINISTÉRIO DA FAZENDA - DF</option>
+                                            <option value="328">TELEMEDICINA</option>
+                                            <option value="329">MINISTÉRIO DO DESENVOLVIMENTO SOCIAL E COMBATE A FOME
+                                                (MDS)
+                                            </option>
+                                            <option value="330">BBTUR</option>
+                                            <option value="331">SOS DOCS</option>
+                                            <option value="332">DEMO</option>
+                                            <option value="333">DEMO2</option>
+                                            <option value="334">BSB ALIMENTOS</option>
+                                            <option value="335">GASTRO CIRURGIA</option>
+                                            <option value="336">MDS</option>
+                                            <option value="337">NOVA CASA DISTRIBUIDORA</option>
+                                            <option value="338">LOJA</option>
+                                            <option value="339">CEB</option>
+                                            <option value="340">UNASLAF (GESTÃO DOCUMENTAL)</option>
+                                            <option value="341">MPERR</option>
+                                            <option value="342">FGCOOP</option>
+                                            <option value="343">TJRO</option>
+                                            <option value="344">CADE</option>
+                                            <option value="345">PROCON</option>
+                                            <option value="346">DNIT</option>
+                                            <option value="347">ORAI</option>
+                                            <option value="348">DESCONHECIDO</option>
+                                            <option value="349">ANS-RJ</option>
+                                            <option value="350">SEELJE</option>
+                                            <option value="351">HEINEKEN</option>
+                                            <option value="352">COTTA</option>
+                                            <option value="353">PNUD</option>
+                                            <option value="354">CANDELARIA</option>
+                                            <option value="355">MINISTÉRIO DA CIDADANIA</option>
+                                            <option value="356">GEAP-RJ</option>
+                                            <option value="357">GEAP-DF</option>
+                                            <option value="358">NEOCARE</option>
+                                            <option value="359">SENAC-DF</option>
+                                            <option value="360">MJSP</option>
+                                            <option value="361">PNUD - EXPEDIENTES</option>
+                                            <option value="362">CELEO REDES - DIGITALIZAÇÃO</option>
+                                            <option value="363">SERVIÇO SOCIAL DA INDÚSTRIA - SESI RIO DE JANEIRO
+                                            </option>
+                                            <option value="364">SERVIÇO SOCIAL DA INDÚSTRIA - SESI RIO GRANDE DO SUL
+                                            </option>
+                                            <option value="365">SEBRAE-MG</option>
+                                            <option value="366">POC - TESTE</option>
+                                        </select>
+                                    </div>
+                                    <div class="field-group grid-full">
+                                        <label>Nome do Novo Formulário: <span class="required">*</span></label>
+                                        <input type="text" id="novoNomeFormCliente"
+                                            placeholder="Informe o nome que o Form terá no projeto destino">
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -4021,7 +4049,8 @@
 
                         <div class="line"><strong id="lblQtdOrigem">12</strong> campos no formulário de origem</div>
                         <div class="line qtd-ok"><strong id="lblQtdClonados">9</strong> campos serão clonados</div>
-                        <div class="line qtd-error"><strong id="lblQtdNaoClonados">3</strong> campos não serão clonados
+                        <div class="line qtd-error"><strong id="lblQtdNaoClonados">3</strong> campos não serão
+                            clonados
                         </div>
 
                         <div id="boxIncompatibilidade" class="incompat">
@@ -4655,16 +4684,25 @@
             const cliente = clienteSelect.value;
             const clienteNome = clienteSelect.options[clienteSelect.selectedIndex].text;
 
-            const projetoSelect = document.getElementById("projetoDestinoCliente");
-            const destino = projetoSelect.value;
-            const projetoNome = projetoSelect.options[projetoSelect.selectedIndex].text;
-
-            const novoNome = document.getElementById("novoNomeFormCliente").value.trim();
+            // Verifica se o container do projeto está visível
+            const containerProjeto = document.getElementById('containerProjetoDestino');
 
             if (!cliente) {
                 exibeMensagemDoczCliente("Selecione um Cliente de Destino.", "warning");
                 return;
             }
+
+            // Se o container não estiver visível, significa que o cliente não foi selecionado corretamente
+            if (containerProjeto.style.display === 'none') {
+                exibeMensagemDoczCliente("Selecione um Cliente de Destino válido para carregar os projetos.", "warning");
+                return;
+            }
+
+            const projetoSelect = document.getElementById("projetoDestinoCliente");
+            const destino = projetoSelect.value;
+            const projetoNome = projetoSelect.options[projetoSelect.selectedIndex].text;
+
+            const novoNome = document.getElementById("novoNomeFormCliente").value.trim();
 
             if (!destino) {
                 exibeMensagemDoczCliente("Selecione um Projeto de Destino.", "warning");
@@ -4688,6 +4726,7 @@
             document.getElementById("lblNovoFormNome").innerText = novoNome;
             document.getElementById("lblProjetoDestino").innerText = clienteNome + " / " + projetoNome;
             document.getElementById("lblQtdOrigem").innerText = singleFormOrigem.qtdCamposTotal;
+
             document.getElementById("lblQtdClonados").innerText = qtdClonados;
             document.getElementById("lblQtdNaoClonados").innerText = qtdNaoClonados;
 
@@ -4695,7 +4734,6 @@
 
             mostrarStep('confirm-outro');
         }
-
         // Voltar para configuração (outro projeto)
         function voltarConfigOutro() {
             mostrarStep('config-outro');
@@ -4854,20 +4892,39 @@
         function initFiltroCliente() {
             var clienteSelect = document.getElementById('clienteDestino');
             var projetoSelect = document.getElementById('projetoDestinoCliente');
+            var containerProjeto = document.getElementById('containerProjetoDestino');
 
-            if (clienteSelect && projetoSelect) {
-                // Remove qualquer evento anterior (se houver)
+            if (clienteSelect && projetoSelect && containerProjeto) {
+                // Remove qualquer evento anterior
                 clienteSelect.removeEventListener('change', function () { });
 
                 // Adiciona o evento de mudança
                 clienteSelect.addEventListener('change', function () {
                     var cliente = this.value;
-                    filtrarProjetosPorCliente(cliente, projetoSelect);
+
+                    if (cliente && cliente !== '') {
+                        // Mostra o container do projeto
+                        containerProjeto.style.display = 'block';
+                        // Filtra os projetos
+                        filtrarProjetosPorCliente(cliente, projetoSelect);
+                    } else {
+                        // Oculta o container do projeto
+                        containerProjeto.style.display = 'none';
+                        // Limpa o select de projetos
+                        projetoSelect.innerHTML = '';
+                        var optionDefault = document.createElement('option');
+                        optionDefault.value = '';
+                        optionDefault.textContent = '-- Selecione um cliente primeiro --';
+                        projetoSelect.appendChild(optionDefault);
+                    }
                 });
 
-                // Se já houver um cliente selecionado, filtra imediatamente
-                if (clienteSelect.value) {
+                // Verifica se já há um cliente selecionado ao carregar
+                if (clienteSelect.value && clienteSelect.value !== '') {
+                    containerProjeto.style.display = 'block';
                     filtrarProjetosPorCliente(clienteSelect.value, projetoSelect);
+                } else {
+                    containerProjeto.style.display = 'none';
                 }
             }
         }

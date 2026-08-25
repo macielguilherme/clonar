@@ -3353,20 +3353,13 @@
                         </div>
                     </label>
 
-                    <!-- Opção 2: Outro projeto (mesmo cliente) -->
-                    <label class="radio-label" id="card-outro" onclick="selecionarOpcao('outro')">
-                        <input type="radio" name="destino_clonagem" value="outro" id="radio-outro">
-                        <div>
-                            <div class="radio-title">Outro projeto</div>
-                            <div class="radio-desc">Escolher um projeto diferente</div>
-                        </div>
-                    </label>
+
 
                     <!-- Opção 3: Outro projeto (cliente diferente) - NOVA OPÇÃO -->
                     <label class="radio-label" id="card-outro-cliente" onclick="selecionarOpcao('outro-cliente')">
                         <input type="radio" name="destino_clonagem" value="outro-cliente" id="radio-outro-cliente">
                         <div>
-                            <div class="radio-title">Outro projeto (outro cliente)</div>
+                            <div class="radio-title">Outro projeto</div>
                             <div class="radio-desc">Escolher um projeto diferente em outro cliente</div>
                         </div>
                     </label>
@@ -3399,64 +3392,7 @@
                     </form>
                 </div>
 
-                <!-- PASSO 2B: CONFIGURAÇÃO COMPLETA (Outro projeto) -->
-                <div id="step-config-outro" class="step">
-                    <!-- Caixa de Mensagem de Validação -->
-                    <div id="validationMessageBox" class="validation-box">
-                        <span id="validationMessageText"></span>
-                    </div>
 
-                    <!-- Widget Form Selecionado -->
-                    <div class="widget-inner">
-                        <div class="widget-header">
-                            <h6>Formulário Selecionado</h6>
-                        </div>
-                        <div class="widget-body">
-                            <div class="info-box">
-                                <div class="nome-form" id="formOrigemNome">INDEXAÇÃO DOCUMENTOS PADRÃO - CODEBA</div>
-                                <div class="qtd-form" id="formOrigemQtd">12 campos</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Widget Parâmetros -->
-                    <div class="widget-inner">
-                        <div class="widget-header">
-                            <h6>Parâmetros de Clonagem</h6>
-                        </div>
-                        <div class="widget-body">
-                            <div class="grid-2col">
-                                <div class="field-group">
-                                    <label>Projeto de Origem:</label>
-                                    <input type="text" id="projetoOrigem" value="DEMO - POC CODEBA" readonly>
-                                </div>
-                                <div class="field-group">
-                                    <label>Projeto de Destino: <span class="required">*</span></label>
-                                    <select id="projetoDestino">
-                                        <option value="">-- Selecione o Projeto de Destino --</option>
-                                        <option value="1">PROVA DE CONCEITO - SES DF</option>
-                                        <option value="2">POC - MINISTÉRIO DA EDUCAÇÃO</option>
-                                        <option value="3">SESI-SENAI-SP</option>
-                                        <option value="4">POC - TESTE</option>
-                                        <option value="5">TESTES PRODUTOS TI</option>
-                                    </select>
-                                </div>
-                                <div class="field-group grid-full">
-                                    <label>Nome do Novo Formulário: <span class="required">*</span></label>
-                                    <input type="text" id="novoNomeForm"
-                                        placeholder="Informe o nome que o Form terá no projeto destino">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="btn-container">
-                        <button type="button" class="button redB" onclick="voltarSelecao()">VOLTAR</button>
-                        <button type="button" class="button blueB" onclick="voltarSelecao()">CANCELAR</button>
-                        <button type="button" class="button greenB"
-                            onclick="iniciarClonagemOutroProjeto()">CONTINUAR</button>
-                    </div>
-                </div>
 
                 <!-- PASSO 2C: CONFIGURAÇÃO COMPLETA (Outro projeto - outro cliente) -->
                 <div id="step-config-outro-cliente" class="step">
@@ -4143,6 +4079,344 @@
             ]
         };
 
+        // Dados de relacionamento Cliente x Projetos
+        const projetosPorCliente = [
+            { "PROJETO": "BBTUR", "CLIENTE": "BBTUR" },
+            { "PROJETO": "SEBRAE", "CLIENTE": "SEBRAE - SERVIÇO DE APOIO ÀS MICRO E PEQUENAS EMPRESAS" },
+            { "PROJETO": "BSB ALIMENTOS", "CLIENTE": "BSB ALIMENTOS" },
+            { "PROJETO": "GASTRO CIRURGIA", "CLIENTE": "Clinica Gastro Cirurgia" },
+            { "PROJETO": "MDS", "CLIENTE": "MDS" },
+            { "PROJETO": "TCDF", "CLIENTE": "Tribunal de Contas do Distrito Federal" },
+            { "PROJETO": "BRASAL", "CLIENTE": "BRASAL" },
+            { "PROJETO": "NOVA CASA DISTRIBUIDORA", "CLIENTE": "Nova Casa Distribuidora" },
+            { "PROJETO": "DETRAN-RJ", "CLIENTE": "DETRAN-RJ" },
+            { "PROJETO": "ANEEL", "CLIENTE": "AGÊNCIA NACIONAL DE ENERGIA ELÉTRICA" },
+            { "PROJETO": "FINANCEIRO", "CLIENTE": "SOS Tecnologia e Gestão da Informação LTDA" },
+            { "PROJETO": "POSTAL", "CLIENTE": "POSTAL SAÚDE CAIXA DE ASSISTÊNCIA E SAÚDE DOS EMPREGADOS DOS CORREIOS" },
+            { "PROJETO": "CRA-RJ", "CLIENTE": "CRA-RJ" },
+            { "PROJETO": "CPB", "CLIENTE": "COMITÊ PARALÍMPICO BRASILEIRO" },
+            { "PROJETO": "CATALOGAÇÃO SEST-SENAT DF", "CLIENTE": "SEST" },
+            { "PROJETO": "SENADO", "CLIENTE": "SENADO" },
+            { "PROJETO": "CONTROLE DE PRONTUARIOS, ATOS - RECEBIDOS E DIGITALIZADOS", "CLIENTE": "SEBRAE - SERVIÇO DE APOIO ÀS MICRO E PEQUENAS EMPRESAS DO ESTADO DO PIAUÍ" },
+            { "PROJETO": "GUARDA SEST-SENAT PORTO VELHO", "CLIENTE": "SEST" },
+            { "PROJETO": "JACOBY FERNANDES & REOLON ADVOGADOS ASSOCIADOS", "CLIENTE": "JACOBY FERNANDES & REOLON ADVOGADOS ASSOCIADOS" },
+            { "PROJETO": "PROMED", "CLIENTE": "Promed Faturamento Médico Hospitalar" },
+            { "PROJETO": "MUTUA", "CLIENTE": "Mútua - Caixa de Assistência dos Profissionais do Crea" },
+            { "PROJETO": "CONFEA", "CLIENTE": "Confea - Conselho Federal de Engenharia e Agronomia" },
+            { "PROJETO": "CFMV", "CLIENTE": "CONSELHO FEDERAL DE MEDICINA VETERINÁRIA - CFMV" },
+            { "PROJETO": "BARRO ALTO", "CLIENTE": "Barro Alto" },
+            { "PROJETO": "SEADPREV", "CLIENTE": "FUNDAÇÃO PIAUÍ PREVIDÊNCIA" },
+            { "PROJETO": "GESTÃO DOCUMENTAL", "CLIENTE": "Secretaria de Educação, Cultura e Esportes do Estado do Goiás - SEDUCE" },
+            { "PROJETO": "DERDF", "CLIENTE": "DEPARTAMENTO DE ESTRADAS E RODAGEM DO DISTRITO FEDERAL" },
+            { "PROJETO": "CEB", "CLIENTE": "COMPANHIA ENERGÉTICA DE BRASÍLIA" },
+            { "PROJETO": "Proflora", "CLIENTE": "PROFLORA" },
+            { "PROJETO": "UNASLAF (GESTÃO DOCUMENTAL)", "CLIENTE": "UNASLAF" },
+            { "PROJETO": "TRT10", "CLIENTE": "Tribunal Regional do Trabalho da Décima Região" },
+            { "PROJETO": "FUNDAÇÃO PROJETO RONDON", "CLIENTE": "FUNDAÇÃO NACIONAL DO ÍNDIO" },
+            { "PROJETO": "MPERR", "CLIENTE": "MINISTÉRIO PÚBLICO DO ESTADO DE RORAIMA" },
+            { "PROJETO": "SERPRO", "CLIENTE": "SERPRO - SERVIÇO FEDERAL DE PROCESSAMENTO DE DADOS" },
+            { "PROJETO": "DPF", "CLIENTE": "DEPARTAMENTO POLÍCIA FEDERAL - DPF" },
+            { "PROJETO": "FGCOOP", "CLIENTE": "Fundo Garantidor do Cooperativismo de Crédito" },
+            { "PROJETO": "UNASLAF (GUARDA)", "CLIENTE": "UNASLAF" },
+            { "PROJETO": "FUNAI", "CLIENTE": "FUNDAÇÃO NACIONAL DO ÍNDIO" },
+            { "PROJETO": "IGEPREV", "CLIENTE": "INSTITUTO DE GESTÃO PREVIDENCIÁRIA - IGEPREV" },
+            { "PROJETO": "SESGO", "CLIENTE": "SESGO" },
+            { "PROJETO": "TJRO", "CLIENTE": "TJRO" },
+            { "PROJETO": "SISTEL", "CLIENTE": "SISTEL" },
+            { "PROJETO": "CADE", "CLIENTE": "CONSELHO ADMINISTRATIVO DE DEFESA ECONOMICA - CADE" },
+            { "PROJETO": "PROCON", "CLIENTE": "PROCON" },
+            { "PROJETO": "DNIT", "CLIENTE": "DEPARTAMENTO NACIONAL DE INFRAESTRUTURA DE TRANSPORTES - DNIT" },
+            { "PROJETO": "MONTREAL", "CLIENTE": "MONTREAL" },
+            { "PROJETO": "MDH", "CLIENTE": "MINISTÉRIO DOS DIREITOS HUMANOS - MDH" },
+            { "PROJETO": "MTB", "CLIENTE": "MINISTÉRIO DO TRABALHO" },
+            { "PROJETO": "ORAI", "CLIENTE": "Organização de Apoio a Igreja em Brasília" },
+            { "PROJETO": "ANM", "CLIENTE": "Agência Nacional de Produção Mineral" },
+            { "PROJETO": "CNPQ", "CLIENTE": "CONSELHO NACIONAL DE DESENVOLVIMENTO CIENTÍFICO E TECNOLÓGICO" },
+            { "PROJETO": "ELETRONORTE", "CLIENTE": "Centrais Elétricas do Norte S/A" },
+            { "PROJETO": "ANS-RJ", "CLIENTE": "ANS - AGÊNCIA NACIONAL DE SAÚDE SUPLEMENTAR" },
+            { "PROJETO": "IPREV-DF", "CLIENTE": "IPREVDF" },
+            { "PROJETO": "SEELJE", "CLIENTE": "SECRETARIA DE ESTADO DE ESPORTE, LAZER E JUVENTUDE - RJ" },
+            { "PROJETO": "SAUDESIM", "CLIENTE": "SAUDESIM" },
+            { "PROJETO": "MONTREAL INFORMATICA", "CLIENTE": "Montreal Informática S.A" },
+            { "PROJETO": "COLOG", "CLIENTE": "COMANDO LOGÍSTICO" },
+            { "PROJETO": "DFPC", "CLIENTE": "DIRETORIA DE FISCALIZAÇÃO DE PRODUTOS CONTROLADOS" },
+            { "PROJETO": "BNDES", "CLIENTE": "BNDES" },
+            { "PROJETO": "HEINEKEN", "CLIENTE": "HEINEKEN BRASIL" },
+            { "PROJETO": "COTTA", "CLIENTE": "CLINICA COTTA" },
+            { "PROJETO": "ICOB", "CLIENTE": "ICOB - Instituto de Cirurgia Ocular de Brasília" },
+            { "PROJETO": "ANS-SP", "CLIENTE": "ANS - AGÊNCIA NACIONAL DE SAÚDE SUPLEMENTAR" },
+            { "PROJETO": "VIVA", "CLIENTE": "FUNDAÇÃO VIVA DE PREVIDÊNCIA" },
+            { "PROJETO": "MMFDH-COMISSAO", "CLIENTE": "MINISTÉRIO DOS DIREITOS HUMANOS - MDH" },
+            { "PROJETO": "PNUD", "CLIENTE": "PNUD-PY" },
+            { "PROJETO": "CANDELARIA", "CLIENTE": "Candelaria" },
+            { "PROJETO": "ABDI", "CLIENTE": "ABDI" },
+            { "PROJETO": "REGIUS", "CLIENTE": "SOCIEDADE CIVIL DE PREVIDÊNCIA PRIVADA" },
+            { "PROJETO": "SES-DF", "CLIENTE": "SECRETARIA DE ESTADO DE SAUDE DO DISTRITO FEDERAL - SES/DF" },
+            { "PROJETO": "TECAR", "CLIENTE": "TECAR" },
+            { "PROJETO": "SINDJUS", "CLIENTE": "SINDJUS" },
+            { "PROJETO": "SICOOB", "CLIENTE": "COOPERATIVA DE CRÉDITO DE LIVRE ADMISSÃO DO BRASIL CENTRAL LTDA – SICOOB EXECUTIVO" },
+            { "PROJETO": "PRF", "CLIENTE": "PRF" },
+            { "PROJETO": "LABOR", "CLIENTE": "LABOR-SELECAO-TREINAMENTO" },
+            { "PROJETO": "IORTO", "CLIENTE": "IORTO" },
+            { "PROJETO": "INTELIGENCIA-XXI", "CLIENTE": "INTELIGENCIA-XXI" },
+            { "PROJETO": "GRUPO TCI", "CLIENTE": "GRUPO-TCI" },
+            { "PROJETO": "CDRT", "CLIENTE": "CLÍNICA DE DOENÇAS RENAIS DE TAGUATINGA LTDA - CDRT" },
+            { "PROJETO": "CDRB", "CLIENTE": "CLÍNICA DE DOENÇAS RENAIS DE BRASÍLIA LTDA - CDRB" },
+            { "PROJETO": "ATIVOS", "CLIENTE": "ATIVOS" },
+            { "PROJETO": "FUNASA", "CLIENTE": "FUNASA" },
+            { "PROJETO": "MINISTÉRIO DA CIDADANIA", "CLIENTE": "Ministério da Cidadania" },
+            { "PROJETO": "TCI", "CLIENTE": "TCI" },
+            { "PROJETO": "Prontuários", "CLIENTE": "IFF INSTITUTO NACIONAL DE SAÚDE DA MULHER, DA CRIANÇA E DO ADOLESCENTE FERNANDES FIGUEIRA" },
+            { "PROJETO": "PNUD-BR", "CLIENTE": "PNUD-BR" },
+            { "PROJETO": "Acervo Geral", "CLIENTE": "IFF INSTITUTO NACIONAL DE SAÚDE DA MULHER, DA CRIANÇA E DO ADOLESCENTE FERNANDES FIGUEIRA" },
+            { "PROJETO": "AIH", "CLIENTE": "IFF INSTITUTO NACIONAL DE SAÚDE DA MULHER, DA CRIANÇA E DO ADOLESCENTE FERNANDES FIGUEIRA" },
+            { "PROJETO": "Banco de Leite – BLH", "CLIENTE": "IFF INSTITUTO NACIONAL DE SAÚDE DA MULHER, DA CRIANÇA E DO ADOLESCENTE FERNANDES FIGUEIRA" },
+            { "PROJETO": "Banco de sangue", "CLIENTE": "IFF INSTITUTO NACIONAL DE SAÚDE DA MULHER, DA CRIANÇA E DO ADOLESCENTE FERNANDES FIGUEIRA" },
+            { "PROJETO": "Centro de estudos", "CLIENTE": "IFF INSTITUTO NACIONAL DE SAÚDE DA MULHER, DA CRIANÇA E DO ADOLESCENTE FERNANDES FIGUEIRA" },
+            { "PROJETO": "Farmácia", "CLIENTE": "IFF INSTITUTO NACIONAL DE SAÚDE DA MULHER, DA CRIANÇA E DO ADOLESCENTE FERNANDES FIGUEIRA" },
+            { "PROJETO": "Folha de Ponto", "CLIENTE": "IFF INSTITUTO NACIONAL DE SAÚDE DA MULHER, DA CRIANÇA E DO ADOLESCENTE FERNANDES FIGUEIRA" },
+            { "PROJETO": "Fonoaudiologia", "CLIENTE": "IFF INSTITUTO NACIONAL DE SAÚDE DA MULHER, DA CRIANÇA E DO ADOLESCENTE FERNANDES FIGUEIRA" },
+            { "PROJETO": "Ginecologia", "CLIENTE": "IFF INSTITUTO NACIONAL DE SAÚDE DA MULHER, DA CRIANÇA E DO ADOLESCENTE FERNANDES FIGUEIRA" },
+            { "PROJETO": "Raio X", "CLIENTE": "IFF INSTITUTO NACIONAL DE SAÚDE DA MULHER, DA CRIANÇA E DO ADOLESCENTE FERNANDES FIGUEIRA" },
+            { "PROJETO": "Laboratório", "CLIENTE": "IFF INSTITUTO NACIONAL DE SAÚDE DA MULHER, DA CRIANÇA E DO ADOLESCENTE FERNANDES FIGUEIRA" },
+            { "PROJETO": "Lactário", "CLIENTE": "IFF INSTITUTO NACIONAL DE SAÚDE DA MULHER, DA CRIANÇA E DO ADOLESCENTE FERNANDES FIGUEIRA" },
+            { "PROJETO": "Maternidade", "CLIENTE": "IFF INSTITUTO NACIONAL DE SAÚDE DA MULHER, DA CRIANÇA E DO ADOLESCENTE FERNANDES FIGUEIRA" },
+            { "PROJETO": "Nota fiscal", "CLIENTE": "IFF INSTITUTO NACIONAL DE SAÚDE DA MULHER, DA CRIANÇA E DO ADOLESCENTE FERNANDES FIGUEIRA" },
+            { "PROJETO": "Obstetrícia", "CLIENTE": "IFF INSTITUTO NACIONAL DE SAÚDE DA MULHER, DA CRIANÇA E DO ADOLESCENTE FERNANDES FIGUEIRA" },
+            { "PROJETO": "Oftalmologia", "CLIENTE": "IFF INSTITUTO NACIONAL DE SAÚDE DA MULHER, DA CRIANÇA E DO ADOLESCENTE FERNANDES FIGUEIRA" },
+            { "PROJETO": "Projeto Vice Direção de pesquisa", "CLIENTE": "IFF INSTITUTO NACIONAL DE SAÚDE DA MULHER, DA CRIANÇA E DO ADOLESCENTE FERNANDES FIGUEIRA" },
+            { "PROJETO": "Pronto Atendimento", "CLIENTE": "IFF INSTITUTO NACIONAL DE SAÚDE DA MULHER, DA CRIANÇA E DO ADOLESCENTE FERNANDES FIGUEIRA" },
+            { "PROJETO": "Psicologia", "CLIENTE": "IFF INSTITUTO NACIONAL DE SAÚDE DA MULHER, DA CRIANÇA E DO ADOLESCENTE FERNANDES FIGUEIRA" },
+            { "PROJETO": "Unidade de acondicionamento", "CLIENTE": "IFF INSTITUTO NACIONAL DE SAÚDE DA MULHER, DA CRIANÇA E DO ADOLESCENTE FERNANDES FIGUEIRA" },
+            { "PROJETO": "BRAZILSHIP (CAIXAS)", "CLIENTE": "BRAZILSHIP SCANBRASIL COMERCIO MARITIMO LTDA" },
+            { "PROJETO": "BRAZILSHIP (MIDIA)", "CLIENTE": "BRAZILSHIP SCANBRASIL COMERCIO MARITIMO LTDA" },
+            { "PROJETO": "BS CORRETORES", "CLIENTE": "BS CORRETORES DE AFRETAMENTO MARÍTIMOS E ASSOCIADOS LTDA" },
+            { "PROJETO": "ONU MULHERES", "CLIENTE": "ONU MULHERES-ENTIDADE DAS NACOES UNIDAS PARA A IGUALDADE DE GENERO E O EMPODERAMENTO DAS MULHERES" },
+            { "PROJETO": "TRADE", "CLIENTE": "TRADE WINDS IMOBILIÁRIA E PARTICIPAÇÕES LTDA." },
+            { "PROJETO": "CELEO REDES", "CLIENTE": "CELEOREDES" },
+            { "PROJETO": "GEAP-RJ", "CLIENTE": "GEAP AUTOGESTÃO EM SAÚDE" },
+            { "PROJETO": "PGM-RJ", "CLIENTE": "Procuradoria Geral do Município do Rio de Janeiro" },
+            { "PROJETO": "CVM", "CLIENTE": "COMISSÃO DE VALORES MOBILIARIOS" },
+            { "PROJETO": "GEAP-DF", "CLIENTE": "GEAP AUTOGESTÃO EM SAÚDE DF" },
+            { "PROJETO": "CORREIO BRAZILIENSE", "CLIENTE": "Correio Braziliense" },
+            { "PROJETO": "RM CONSULTORIA", "CLIENTE": "RM CONSULTORIA EMPRESARIAL EIRELI" },
+            { "PROJETO": "INTO-RJ", "CLIENTE": "INSTITUTO NACIONAL DE TRAUMATOLOGIA E ORTOPEDIA JAMIL HADDAD" },
+            { "PROJETO": "NEOCARE", "CLIENTE": "NEOCARE ODONTOLOGIA LTDA" },
+            { "PROJETO": "SOSDOCS", "CLIENTE": "Sos Tecnologia e Gestão da Informação LTDA" },
+            { "PROJETO": "CEMIG-CEB", "CLIENTE": "Consórcio CEMIG-CEB" },
+            { "PROJETO": "VERTICAL", "CLIENTE": "VERTICAL EMPRESA DE VIGILÂNCIA EIRELI" },
+            { "PROJETO": "SENAC-DF", "CLIENTE": "Serviço Nacional de Aprendizagem Comercial – SENAC/DF" },
+            { "PROJETO": "RG2", "CLIENTE": "RG2 Serviços e processos Administrativo EIRELI" },
+            { "PROJETO": "34 OFICIO-RJ", "CLIENTE": "34° OFÍCIO DE NOTAS" },
+            { "PROJETO": "FOX ENGENHARIA", "CLIENTE": "Fox Engenharia" },
+            { "PROJETO": "INSTITUTO ODEON", "CLIENTE": "INSTITUTO ODEON" },
+            { "PROJETO": "CEB HOLDING", "CLIENTE": "Companhia Energética de Brasília S.A – Holding" },
+            { "PROJETO": "CNI", "CLIENTE": "CONFEDERAÇÃO NACIONAL DA INDÚSTRIA" },
+            { "PROJETO": "RM", "CLIENTE": "RM" },
+            { "PROJETO": "SAÚDE BRB", "CLIENTE": "SAUDE BRB CAIXA DE ASSISTENCIA" },
+            { "PROJETO": "ONCOCLINICA", "CLIENTE": "ONCOCLINICA" },
+            { "PROJETO": "BRB SEGUROS", "CLIENTE": "BRB SEGUROS" },
+            { "PROJETO": "BRBCARD", "CLIENTE": "BRB CARD" },
+            { "PROJETO": "SERRA-ES", "CLIENTE": "Prefeitura Municipal da Serra" },
+            { "PROJETO": "FENAE", "CLIENTE": "FENAE" },
+            { "PROJETO": "ONCO VIDA", "CLIENTE": "ONCO VIDA" },
+            { "PROJETO": "ODEON-RJ", "CLIENTE": "INSTITUTO ODEON" },
+            { "PROJETO": "UNESCO", "CLIENTE": "UNESCO" },
+            { "PROJETO": "PETROBRÁS", "CLIENTE": "Petróleo Brasileiro S.A - PETROBRÁS" },
+            { "PROJETO": "LASA-RJ", "CLIENTE": "Lojas Americanas S. A." },
+            { "PROJETO": "NORSUL", "CLIENTE": "COMPANHIA DE NAVEGACAO NORSUL" },
+            { "PROJETO": "FSFSS", "CLIENTE": "Fundação São Francisco de Seguridade Social" },
+            { "PROJETO": "MJSP", "CLIENTE": "Ministério da Justiça e Segurança Pública Secretaria-Executiva" },
+            { "PROJETO": "VITABEL", "CLIENTE": "Drogaria Vitabel LTDA" },
+            { "PROJETO": "PLASTIKA", "CLIENTE": "PLASTIKA BRASÍLIA SERVIÇOS MÉDICOS EIRELI" },
+            { "PROJETO": "CONAB", "CLIENTE": "CONAB" },
+            { "PROJETO": "ALIANÇA", "CLIENTE": "ALIANÇA INSTITUTO DE ONCOLOGIA S.A" },
+            { "PROJETO": "RIOPET", "CLIENTE": "Riopet Embalagens SA" },
+            { "PROJETO": "BEM VIVER", "CLIENTE": "Centro de Especialidades Médicas Bem Viver LTDA" },
+            { "PROJETO": "BIOCARDIOS", "CLIENTE": "Biocárdios Instituto de Cardiologia LTDA" },
+            { "PROJETO": "VILA RICA", "CLIENTE": "Clínica Radiológica Vila Rica LTDA" },
+            { "PROJETO": "ABR TELECOM", "CLIENTE": "ASSOCIACAO BRASILEIRA DE RECURSOS EM TELECOMUNICACOES" },
+            { "PROJETO": "CEB LAJEADO", "CLIENTE": "CEB Lajeado S.A" },
+            { "PROJETO": "MULIER", "CLIENTE": "Mulier Laboratório Clínico LTDA EPP" },
+            { "PROJETO": "CARDIOSUL", "CLIENTE": "CardioSul Clínica Cardiologica" },
+            { "PROJETO": "EMGEA", "CLIENTE": "EMGEA" },
+            { "PROJETO": "IATE CLUBE", "CLIENTE": "Iate Clube de Brasília" },
+            { "PROJETO": "RODRIGO-RJ", "CLIENTE": "RODRIGO MATTHEIS LONDRES" },
+            { "PROJETO": "CME", "CLIENTE": "IFF INSTITUTO NACIONAL DE SAÚDE DA MULHER, DA CRIANÇA E DO ADOLESCENTE FERNANDES FIGUEIRA" },
+            { "PROJETO": "BANCO BRB - MATRIZ", "CLIENTE": "BRB - BANCO DE BRASÍLIA S. A" },
+            { "PROJETO": "ANM NACIONAL - REGIONAL SP", "CLIENTE": "Agência Nacional de Mineração" },
+            { "PROJETO": "GREENLEAF", "CLIENTE": "GREENLEAF" },
+            { "PROJETO": "PNUD - EXPEDIENTES", "CLIENTE": "PNUD-PY" },
+            { "PROJETO": "PABLO SOLEDADE", "CLIENTE": "PS Treinamento Profissional e Consultoria Empresarial Ltda" },
+            { "PROJETO": "ANCHIETA", "CLIENTE": "HOSPITAL ANCHIETA LTDA" },
+            { "PROJETO": "UNFPA", "CLIENTE": "UNFPA - Fundo de Populações das nações Unidas" },
+            { "PROJETO": "C. MARTINS ADVOGADOS", "CLIENTE": "C. MARTINS ADVOGADOS" },
+            { "PROJETO": "SM21 ENGENHARIA E CONSTRUÇÕES S.A", "CLIENTE": "SM21 ENGENHARIA E CONSTRUÇÕES S.A" },
+            { "PROJETO": "WIZ BPO-SP", "CLIENTE": "Wiz BPO Serviços de Teleatendimento Ltda" },
+            { "PROJETO": "XS5", "CLIENTE": "XS5 Administradora De Consórcios S.A." },
+            { "PROJETO": "WIZ BPO-BA", "CLIENTE": "Wiz BPO Serviços de Teleatendimento Ltda" },
+            { "PROJETO": "FENAG", "CLIENTE": "Federação Nacional das Associações de Gestores da Caixa - FENAG" },
+            { "PROJETO": "TJMA", "CLIENTE": "TRIBUNAL DE JUSTIÇA DO ESTADO DO MARANHÃO" },
+            { "PROJETO": "ACNUR", "CLIENTE": "ACNUR - Alto-comissariado das Nações Unidas para os Refugiados" },
+            { "PROJETO": "ANM NACIONAL - REGIONAL RJ", "CLIENTE": "Agência Nacional de Mineração" },
+            { "PROJETO": "ANM NACIONAL - REGIONAL SC", "CLIENTE": "Agência Nacional de Mineração" },
+            { "PROJETO": "ANM NACIONAL - REGIONAL MS", "CLIENTE": "Agência Nacional de Mineração" },
+            { "PROJETO": "ANM NACIONAL - REGIONAL RS", "CLIENTE": "Agência Nacional de Mineração" },
+            { "PROJETO": "ANM NACIONAL - REGIONAL PR", "CLIENTE": "Agência Nacional de Mineração" },
+            { "PROJETO": "INPI-AH", "CLIENTE": "Instituto Nacional da Propriedade Industrial" },
+            { "PROJETO": "SEBRAE-ES", "CLIENTE": "SERVIÇO BRASILEIRO DE APOIO ÀS MICRO E PEQUENAS EMPRESAS" },
+            { "PROJETO": "GEAP AUTOGESTÃO EM SAÚDE", "CLIENTE": "GEAP AUTOGESTÃO EM SAÚDE - GERES" },
+            { "PROJETO": "G S H - CORP PARTICIPACOES S.A", "CLIENTE": "G S H - CORP PARTICIPACOES S.A" },
+            { "PROJETO": "DPU", "CLIENTE": "DEFENSORIA PÚBLICA DA UNIÃO" },
+            { "PROJETO": "BAHIAGÁS", "CLIENTE": "COMPANHIA DE GÁS DA BAHIA – BAHIAGÁS" },
+            { "PROJETO": "COT CLÍNICA ORTOPÉDICA TATUAPE S.A", "CLIENTE": "COT CLÍNICA ORTOPÉDICA TATUAPE S.A" },
+            { "PROJETO": "SPI", "CLIENTE": "FUNDAÇÃO NACIONAL DO ÍNDIO" },
+            { "PROJETO": "BANCO BRB - AGENCIA TERRAÇO", "CLIENTE": "BRB - BANCO DE BRASÍLIA S. A" },
+            { "PROJETO": "Metricas SOS", "CLIENTE": "Métricas SOS" },
+            { "PROJETO": "ANM NACIONAL - REGIONAL MG", "CLIENTE": "Agência Nacional de Mineração" },
+            { "PROJETO": "ANM NACIONAL - REGIONAL ES", "CLIENTE": "Agência Nacional de Mineração" },
+            { "PROJETO": "COB CLÍNICA ORTOPÉDICA BROOKLIN LTDA", "CLIENTE": "COB CLÍNICA ORTOPÉDICA BROOKLIN LTDA" },
+            { "PROJETO": "CELEO REDES - Digitalização", "CLIENTE": "CELEOREDES" },
+            { "PROJETO": "IGESDF - INSTITUTO DE GESTÃO ESTRATÉGICA DE SAÚDE DO DISTRITO FEDERAL", "CLIENTE": "INSTITUTO DE GESTÃO ESTRATÉGICA DE SAÚDE DO DISTRITO FEDERAL - IGESDF" },
+            { "PROJETO": "IGESDF - HOSPITAL DE BASE", "CLIENTE": "INSTITUTO DE GESTÃO ESTRATÉGICA DE SAÚDE DO DISTRITO FEDERAL - IGESDF" },
+            { "PROJETO": "IGESDF - HOSPITAL REGIONAL DE SANTA MARIA", "CLIENTE": "INSTITUTO DE GESTÃO ESTRATÉGICA DE SAÚDE DO DISTRITO FEDERAL - IGESDF" },
+            { "PROJETO": "IGESDF - UPA SOBRADINHO", "CLIENTE": "INSTITUTO DE GESTÃO ESTRATÉGICA DE SAÚDE DO DISTRITO FEDERAL - IGESDF" },
+            { "PROJETO": "IGESDF - UPA PLANALTINA", "CLIENTE": "INSTITUTO DE GESTÃO ESTRATÉGICA DE SAÚDE DO DISTRITO FEDERAL - IGESDF" },
+            { "PROJETO": "IGESDF - UPA BRAZLÂNDIA", "CLIENTE": "INSTITUTO DE GESTÃO ESTRATÉGICA DE SAÚDE DO DISTRITO FEDERAL - IGESDF" },
+            { "PROJETO": "IGESDF - UPA CEILÂNDIA", "CLIENTE": "INSTITUTO DE GESTÃO ESTRATÉGICA DE SAÚDE DO DISTRITO FEDERAL - IGESDF" },
+            { "PROJETO": "IGESDF - UPA CEILÂNDIA II", "CLIENTE": "INSTITUTO DE GESTÃO ESTRATÉGICA DE SAÚDE DO DISTRITO FEDERAL - IGESDF" },
+            { "PROJETO": "IGESDF - UPA SAMAMBAIA", "CLIENTE": "INSTITUTO DE GESTÃO ESTRATÉGICA DE SAÚDE DO DISTRITO FEDERAL - IGESDF" },
+            { "PROJETO": "IGESDF - UPA VICENTE PIRES", "CLIENTE": "INSTITUTO DE GESTÃO ESTRATÉGICA DE SAÚDE DO DISTRITO FEDERAL - IGESDF" },
+            { "PROJETO": "IGESDF - UPA NUCLEO BANDEIRANTE", "CLIENTE": "INSTITUTO DE GESTÃO ESTRATÉGICA DE SAÚDE DO DISTRITO FEDERAL - IGESDF" },
+            { "PROJETO": "IGESDF - UPA RIACHO FUNDO II", "CLIENTE": "INSTITUTO DE GESTÃO ESTRATÉGICA DE SAÚDE DO DISTRITO FEDERAL - IGESDF" },
+            { "PROJETO": "IGESDF - UPA RECANTO DAS EMAS", "CLIENTE": "INSTITUTO DE GESTÃO ESTRATÉGICA DE SAÚDE DO DISTRITO FEDERAL - IGESDF" },
+            { "PROJETO": "IGESDF - UPA SÃO SEBASTIÃO", "CLIENTE": "INSTITUTO DE GESTÃO ESTRATÉGICA DE SAÚDE DO DISTRITO FEDERAL - IGESDF" },
+            { "PROJETO": "IGESDF - UPA PARANOÁ", "CLIENTE": "INSTITUTO DE GESTÃO ESTRATÉGICA DE SAÚDE DO DISTRITO FEDERAL - IGESDF" },
+            { "PROJETO": "IGESDF - UPA GAMA", "CLIENTE": "INSTITUTO DE GESTÃO ESTRATÉGICA DE SAÚDE DO DISTRITO FEDERAL - IGESDF" },
+            { "PROJETO": "IGESDF - PO 700", "CLIENTE": "INSTITUTO DE GESTÃO ESTRATÉGICA DE SAÚDE DO DISTRITO FEDERAL - IGESDF" },
+            { "PROJETO": "IGESDF - CENTRAL DE LOGÍSTICA - SIA", "CLIENTE": "INSTITUTO DE GESTÃO ESTRATÉGICA DE SAÚDE DO DISTRITO FEDERAL - IGESDF" },
+            { "PROJETO": "SECRETARIA DE ADMINISTRAÇÃO DO ESTADO DO PIAUÍ – SEAD-PI", "CLIENTE": "SECRETARIA DE ADMINISTRAÇÃO DO ESTADO DO PIAUÍ - SEAD-PI" },
+            { "PROJETO": "FUNDAÇÃO PIAUÍ PREVIDÊNCIA", "CLIENTE": "FUNDAÇÃO PIAUÍ PREVIDÊNCIA - FPP" },
+            { "PROJETO": "COMPANHIA DE PROCESSAMENTO DE DADOS DO ESTADO DE SÃO PAULO - PRODESP", "CLIENTE": "COMPANHIA DE PROCESSAMENTO DE DADOS DO ESTADO DE SÃO PAULO - PRODESP" },
+            { "PROJETO": "DEPARTAMENTO ESTADUAL DE TRÂNSITO DE SÃO PAULO - DETRAN-SP", "CLIENTE": "COMPANHIA DE PROCESSAMENTO DE DADOS DO ESTADO DE SÃO PAULO - PRODESP" },
+            { "PROJETO": "APCEF – Associação de Pessoal da Caixa Econômica Federal", "CLIENTE": "APCEF – Associação de Pessoal da Caixa Econômica Federal" },
+            { "PROJETO": "SERPRO - CERTIFICADOS DIGITAIS", "CLIENTE": "SERPRO - SERVIÇO FEDERAL DE PROCESSAMENTO DE DADOS" },
+            { "PROJETO": "EMGEA - POC", "CLIENTE": "Empresa Gestora de Ativos" },
+            { "PROJETO": "AGENERSA - GESTÃO DOCUMENTAL", "CLIENTE": "Agência Reguladora de Energia e Saneamento Básico do Estado do Rio de Janeiro - AGENERSA" },
+            { "PROJETO": "AGENERSA - PROJETOS DE ENGENHARIA", "CLIENTE": "Agência Reguladora de Energia e Saneamento Básico do Estado do Rio de Janeiro - AGENERSA" },
+            { "PROJETO": "ACCOR HOTELARIA S.A.", "CLIENTE": "ACCOR HOTELARIA S.A" },
+            { "PROJETO": "XS5 - Bens IMÓVEIS", "CLIENTE": "XS5 Administradora De Consórcios S.A." },
+            { "PROJETO": "XS5 - Bens móveis LEVES", "CLIENTE": "XS5 Administradora De Consórcios S.A." },
+            { "PROJETO": "XS5 - Bens móveis PESADOS", "CLIENTE": "XS5 Administradora De Consórcios S.A." },
+            { "PROJETO": "SEGUP", "CLIENTE": "Secretaria de Estado de Segurança Pública e Defesa Social" },
+            { "PROJETO": "SESPA", "CLIENTE": "Secretaria de Estado da Saúde do Pará" },
+            { "PROJETO": "SECRETARIA DE ESTADO DA EDUCAÇÃO DO PIAUÍ - SEDUC-PI", "CLIENTE": "SECRETARIA DE ESTADO DA EDUCAÇÃO DO PIAUÍ" },
+            { "PROJETO": "ASSOCIAÇÃO PETROBRAS DE SAÚDE - APS", "CLIENTE": "ASSOCIAÇÃO PETROBRAS DE SAÚDE" },
+            { "PROJETO": "Câmara Municipal de Maceió", "CLIENTE": "Câmara Municipal de Maceió" },
+            { "PROJETO": "SERVIÇO SOCIAL DA INDÚSTRIA - DEPARTAMENTO NACIONAL- SESI-DN", "CLIENTE": "SERVIÇO SOCIAL DA INDÚSTRIA - DEPARTAMENTO NACIONAL - SESI/DN" },
+            { "PROJETO": "Lojas Americanas - SP", "CLIENTE": "Lojas Americanas S.A." },
+            { "PROJETO": "ORGANIZACAO DAS NACOES UNIDAS PARA AGRICULTURA E ALIMENTACAO-FAO", "CLIENTE": "ORGANIZACAO DAS NACOES UNIDAS PARA AGRICULTURA E ALIMENTACAO - FAO" },
+            { "PROJETO": "PROCURADORIA GERAL DO ESTADO DO PIAUÍ - PGE-PI", "CLIENTE": "PROCURADORIA GERAL DO ESTADO DO PIAUÍ - PGE-PI" },
+            { "PROJETO": "Prefeitura de Abadiânia - GO", "CLIENTE": "Prefeitura Municipal de Abadiânia" },
+            { "PROJETO": "Agência Goiana de Infraestrutura e Transportes - Goinfra", "CLIENTE": "Agência Goiana de Infraestrutura e Transportes - Goinfra" },
+            { "PROJETO": "Secretaria de Desenvolvimento Social de Goiás - SEDS", "CLIENTE": "SECRETARIA DE DESENVOLVIMENTO SOCIAL DE GOIAS - SEDS" },
+            { "PROJETO": "Unidade Sesc Sede", "CLIENTE": "SERVICO SOCIAL DO COMÉRCIO - ADMINISTRAÇÃO REGIONAL DO DISTRITO FEDERAL - SESC-AR/DF" },
+            { "PROJETO": "Unidade Sesc Guará", "CLIENTE": "SERVICO SOCIAL DO COMÉRCIO - ADMINISTRAÇÃO REGIONAL DO DISTRITO FEDERAL - SESC-AR/DF" },
+            { "PROJETO": "Unidade Sesc 504 Sul", "CLIENTE": "SERVICO SOCIAL DO COMÉRCIO - ADMINISTRAÇÃO REGIONAL DO DISTRITO FEDERAL - SESC-AR/DF" },
+            { "PROJETO": "Unidade Sesc Presidente Dutra", "CLIENTE": "SERVICO SOCIAL DO COMÉRCIO - ADMINISTRAÇÃO REGIONAL DO DISTRITO FEDERAL - SESC-AR/DF" },
+            { "PROJETO": "Unidade Sesc Taguatinga Norte", "CLIENTE": "SERVICO SOCIAL DO COMÉRCIO - ADMINISTRAÇÃO REGIONAL DO DISTRITO FEDERAL - SESC-AR/DF" },
+            { "PROJETO": "Unidade Sesc Taguatinga Sul", "CLIENTE": "SERVICO SOCIAL DO COMÉRCIO - ADMINISTRAÇÃO REGIONAL DO DISTRITO FEDERAL - SESC-AR/DF" },
+            { "PROJETO": "Unidade Sesc Ceilândia", "CLIENTE": "SERVICO SOCIAL DO COMÉRCIO - ADMINISTRAÇÃO REGIONAL DO DISTRITO FEDERAL - SESC-AR/DF" },
+            { "PROJETO": "Unidade Sesc Gama", "CLIENTE": "SERVICO SOCIAL DO COMÉRCIO - ADMINISTRAÇÃO REGIONAL DO DISTRITO FEDERAL - SESC-AR/DF" },
+            { "PROJETO": "Unidade Sesc 913 Sul", "CLIENTE": "SERVICO SOCIAL DO COMÉRCIO - ADMINISTRAÇÃO REGIONAL DO DISTRITO FEDERAL - SESC-AR/DF" },
+            { "PROJETO": "ASSOCIAÇÃO BRASILEIRA DE PESQUISA E INOVAÇÃO INDUSTRIAL – EMBRAPII", "CLIENTE": "ASSOCIAÇÃO BRASILEIRA DE PESQUISA E INOVAÇÃO INDUSTRIAL EMBRAPII" },
+            { "PROJETO": "digitalização-certificada", "CLIENTE": "Digitalização-Certificada" },
+            { "PROJETO": "VISUPLAC", "CLIENTE": "VISUPLAC" },
+            { "PROJETO": "SERVIÇO SOCIAL DA INDÚSTRIA - SESI DISTRITO FEDERAL", "CLIENTE": "SERVIÇO SOCIAL DA INDÚSTRIA - DEPARTAMENTO NACIONAL - SESI/DN" },
+            { "PROJETO": "Comercial", "CLIENTE": "COMERCIAL" },
+            { "PROJETO": "HORTIFRUTI", "CLIENTE": "Americanas S.A. em Recuperação Judicial" },
+            { "PROJETO": "SERVIÇO SOCIAL DA INDÚSTRIA - SESI ACRE", "CLIENTE": "SERVIÇO SOCIAL DA INDÚSTRIA - DEPARTAMENTO NACIONAL - SESI/DN" },
+            { "PROJETO": "SERVIÇO SOCIAL DA INDÚSTRIA - SESI ALAGOAS", "CLIENTE": "SERVIÇO SOCIAL DA INDÚSTRIA - DEPARTAMENTO NACIONAL - SESI/DN" },
+            { "PROJETO": "SERVIÇO SOCIAL DA INDÚSTRIA - SESI AMAZONAS", "CLIENTE": "SERVIÇO SOCIAL DA INDÚSTRIA - DEPARTAMENTO NACIONAL - SESI/DN" },
+            { "PROJETO": "SERVIÇO SOCIAL DA INDÚSTRIA - SESI AMAPÁ", "CLIENTE": "SERVIÇO SOCIAL DA INDÚSTRIA - DEPARTAMENTO NACIONAL - SESI/DN" },
+            { "PROJETO": "SERVIÇO SOCIAL DA INDÚSTRIA - SESI BAHIA", "CLIENTE": "SERVIÇO SOCIAL DA INDÚSTRIA - DEPARTAMENTO NACIONAL - SESI/DN" },
+            { "PROJETO": "SERVIÇO SOCIAL DA INDÚSTRIA - SESI CEARÁ", "CLIENTE": "SERVIÇO SOCIAL DA INDÚSTRIA - DEPARTAMENTO NACIONAL - SESI/DN" },
+            { "PROJETO": "SERVIÇO SOCIAL DA INDÚSTRIA - SESI ESPÍRITO SANTO", "CLIENTE": "SERVIÇO SOCIAL DA INDÚSTRIA - DEPARTAMENTO NACIONAL - SESI/DN" },
+            { "PROJETO": "SERVIÇO SOCIAL DA INDÚSTRIA - SESI GOIÁS", "CLIENTE": "SERVIÇO SOCIAL DA INDÚSTRIA - DEPARTAMENTO NACIONAL - SESI/DN" },
+            { "PROJETO": "SERVIÇO SOCIAL DA INDÚSTRIA - SESI MARANHÃO", "CLIENTE": "SERVIÇO SOCIAL DA INDÚSTRIA - DEPARTAMENTO NACIONAL - SESI/DN" },
+            { "PROJETO": "SERVIÇO SOCIAL DA INDÚSTRIA - SESI MATO GROSSO", "CLIENTE": "SERVIÇO SOCIAL DA INDÚSTRIA - DEPARTAMENTO NACIONAL - SESI/DN" },
+            { "PROJETO": "SERVIÇO SOCIAL DA INDÚSTRIA - SESI PARÁ", "CLIENTE": "SERVIÇO SOCIAL DA INDÚSTRIA - DEPARTAMENTO NACIONAL - SESI/DN" },
+            { "PROJETO": "SERVIÇO SOCIAL DA INDÚSTRIA - SESI PARAÍBA", "CLIENTE": "SERVIÇO SOCIAL DA INDÚSTRIA - DEPARTAMENTO NACIONAL - SESI/DN" },
+            { "PROJETO": "SERVIÇO SOCIAL DA INDÚSTRIA - SESI PERNAMBUCO", "CLIENTE": "SERVIÇO SOCIAL DA INDÚSTRIA - DEPARTAMENTO NACIONAL - SESI/DN" },
+            { "PROJETO": "SERVIÇO SOCIAL DA INDÚSTRIA - SESI RIO DE JANEIRO", "CLIENTE": "SERVIÇO SOCIAL DA INDÚSTRIA - DEPARTAMENTO NACIONAL - SESI/DN" },
+            { "PROJETO": "SERVIÇO SOCIAL DA INDÚSTRIA - SESI RONDÔNIA", "CLIENTE": "SERVIÇO SOCIAL DA INDÚSTRIA - DEPARTAMENTO NACIONAL - SESI/DN" },
+            { "PROJETO": "SERVIÇO SOCIAL DA INDÚSTRIA - SESI RORAIMA", "CLIENTE": "SERVIÇO SOCIAL DA INDÚSTRIA - DEPARTAMENTO NACIONAL - SESI/DN" },
+            { "PROJETO": "SERVIÇO SOCIAL DA INDÚSTRIA - SESI SANTA CATARINA", "CLIENTE": "SERVIÇO SOCIAL DA INDÚSTRIA - DEPARTAMENTO NACIONAL - SESI/DN" },
+            { "PROJETO": "SERVIÇO SOCIAL DA INDÚSTRIA - SESI SERGIPE", "CLIENTE": "SERVIÇO SOCIAL DA INDÚSTRIA - DEPARTAMENTO NACIONAL - SESI/DN" },
+            { "PROJETO": "SERVIÇO SOCIAL DA INDÚSTRIA - SESI TOCANTINS", "CLIENTE": "SERVIÇO SOCIAL DA INDÚSTRIA - DEPARTAMENTO NACIONAL - SESI/DN" },
+            { "PROJETO": "SERVIÇO SOCIAL DA INDÚSTRIA - SESI MATO GROSSO DO SUL", "CLIENTE": "SERVIÇO SOCIAL DA INDÚSTRIA - DEPARTAMENTO NACIONAL - SESI/DN" },
+            { "PROJETO": "SERVIÇO SOCIAL DA INDÚSTRIA - SESI PIAUI", "CLIENTE": "SERVIÇO SOCIAL DA INDÚSTRIA - DEPARTAMENTO NACIONAL - SESI/DN" },
+            { "PROJETO": "SERVIÇO SOCIAL DA INDÚSTRIA - SESI RIO GRANDE DO SUL", "CLIENTE": "SERVIÇO SOCIAL DA INDÚSTRIA - DEPARTAMENTO NACIONAL - SESI/DN" },
+            { "PROJETO": "SERVIÇO SOCIAL DA INDÚSTRIA - SESI MINAS GERAIS", "CLIENTE": "SERVIÇO SOCIAL DA INDÚSTRIA - DEPARTAMENTO NACIONAL - SESI/DN" },
+            { "PROJETO": "SERVIÇO SOCIAL DA INDÚSTRIA - SESI RIO GRANDE DO NORTE", "CLIENTE": "SERVIÇO SOCIAL DA INDÚSTRIA - DEPARTAMENTO NACIONAL - SESI/DN" },
+            { "PROJETO": "IGESDF - BASE DE DADOS VIRTUAL", "CLIENTE": "INSTITUTO DE GESTÃO ESTRATÉGICA DE SAÚDE DO DISTRITO FEDERAL - IGESDF" },
+            { "PROJETO": "Projeto 1", "CLIENTE": "COMERCIAL" },
+            { "PROJETO": "Projeto 2", "CLIENTE": "COMERCIAL" },
+            { "PROJETO": "Projeto 3", "CLIENTE": "COMERCIAL" },
+            { "PROJETO": "Projeto 4", "CLIENTE": "COMERCIAL" },
+            { "PROJETO": "Prefeitura Municipal de Santo Antônio do Descoberto", "CLIENTE": "Prefeitura Municipal de Santo Antônio do Descoberto" },
+            { "PROJETO": "ANATONIA PATOLÓGICA", "CLIENTE": "IFF INSTITUTO NACIONAL DE SAÚDE DA MULHER, DA CRIANÇA E DO ADOLESCENTE FERNANDES FIGUEIRA" },
+            { "PROJETO": "SECRETARIA DE SEGURANÇA PÚBLICA DO ESTADO DO PIAUÍ", "CLIENTE": "SECRETARIA DE SEGURANÇA PÚBLICA DO ESTADO DO PIAUÍ" },
+            { "PROJETO": "FACULDADE UNIPROCESSUS - Unidade Asa Sul", "CLIENTE": "FACULDADE UNIPROCESSUS" },
+            { "PROJETO": "FACULDADE UNIPROCESSUS - Unidade Aguas Claras", "CLIENTE": "FACULDADE UNIPROCESSUS" },
+            { "PROJETO": "POLICIA RODOVIÁRIA FEDERAL DO RIO GRANDE DO SUL", "CLIENTE": "POLICIA RODOVIÁRIA FEDERAL DO RIO GRANDE DO SUL" },
+            { "PROJETO": "GRUPO EQUATORIAL ENERGIA RIO GRANDE DO SUL", "CLIENTE": "GRUPO EQUATORIAL ENERGIA RIO GRANDE DO SUL" },
+            { "PROJETO": "EMGEA - EMPRESA GESTORA DE ATIVOS", "CLIENTE": "EMGEA- EMPRESA GESTORA DE ATIVOS" },
+            { "PROJETO": "SESC – Administração Regional no Estado da Bahia", "CLIENTE": "SESC Administração Regional no Estado da Bahia" },
+            { "PROJETO": "Companhia Urbanizadora da Nova Capital do Brasil - NOVACAP", "CLIENTE": "Companhia Urbanizadora da Nova Capital do Brasil - NOVACAP" },
+            { "PROJETO": "Hospital Militar de Área de Brasília", "CLIENTE": "Hospital Militar de Área de Brasília - HMAB" },
+            { "PROJETO": "SECRETARIA DE ESTADO DA ASSISTÊNCIA SOCIAL, TRABALHO E DIREITOS HUMANOS", "CLIENTE": "SECRETARIA DE ESTADO DA ASSISTÊNCIA SOCIAL, TRABALHO E DIREITOS HUMANOS - SASC - PI" },
+            { "PROJETO": "PROJETO X", "CLIENTE": "POCSP-2025" },
+            { "PROJETO": "Unidade Sesc Móvel", "CLIENTE": "SERVICO SOCIAL DO COMÉRCIO - ADMINISTRAÇÃO REGIONAL DO DISTRITO FEDERAL - SESC-AR/DF" },
+            { "PROJETO": "Associação Nacional dos Transportadores Ferroviários - ANTF", "CLIENTE": "Associação Nacional dos Transportadores Ferroviários - ANTF" },
+            { "PROJETO": "Conselho Regional de Engenharia e Agronomia do Distrito Federal - CREA-DF", "CLIENTE": "Conselho Regional de Engenharia e Agronomia do Distrito Federal - CREA-DF" },
+            { "PROJETO": "CONSELHO NACIONAL DO SESI", "CLIENTE": "CONSELHO NACIONAL DO SESI" },
+            { "PROJETO": "SEBRAE-MG", "CLIENTE": "Serviço de Apoio às Micro e Pequenas Empresas de Minas Gerais - SEBRAE-MG" },
+            { "PROJETO": "SEMPRE ALERTA GESTAO EMPRESARIAL E SERVICOS GERAIS", "CLIENTE": "SEMPRE ALERTA AGENCIAMENTO DE MÃO DE OBRA E SERVIÇOS GERAIS LTDA" },
+            { "PROJETO": "LIGA ENGENHARIA", "CLIENTE": "Liga Engenharia LTDA" },
+            { "PROJETO": "CREA-ES", "CLIENTE": "Conselho Regional de Engenharia e Agronomia do Espirito Santo" },
+            { "PROJETO": "HOME ASSISTANCE LTDA", "CLIENTE": "HOME ASSISTANCE LTDA" },
+            { "PROJETO": "CONSELHO FEDERAL DE FARMACIA", "CLIENTE": "CONSELHO FEDERAL DE FARMACIA" },
+            { "PROJETO": "CONSELHO FEDERAL DE FISIOTERAPIA E TERAPIA OCUPACIONAL - COFFITO", "CLIENTE": "CONSELHO FEDERAL DE FISIOTERAPIA E TERAPIA OCUPACIONAL" },
+            { "PROJETO": "CBTU - COMPANHIA BRASILEIRA DE TRENS URBANOS", "CLIENTE": "COMPANHIA BRASILEIRA DE TRENS URBANOS - CBTU" },
+            { "PROJETO": "CRMV-ES", "CLIENTE": "CONSELHO REGIONAL DE MEDICINA VETERINÁRIA DO ESTADO DO ESPÍRITO SANTO" },
+            { "PROJETO": "CMA CGM DO BRASIL AGENCIA MARITIMA LTDA", "CLIENTE": "CMA CGM DO BRASIL AGENCIA MARITIMA LTDA" },
+            { "PROJETO": "OITAVO REGISTRO CIVIL DA CAPITAL RJ", "CLIENTE": "OITAVO REGISTRO CIVIL DA CAPITAL RJ" },
+            { "PROJETO": "EMGEA CONFERÊNCIA", "CLIENTE": "EMGEA- EMPRESA GESTORA DE ATIVOS" },
+            { "PROJETO": "Delly Kosmetic Comércio e Indústria Ltda", "CLIENTE": "Delly Kosmetic Comércio e Indústria Ltda" },
+            { "PROJETO": "HC-UFG", "CLIENTE": "Empresa Brasileira de Serviços Hospitalares" },
+            { "PROJETO": "HUB-UNB", "CLIENTE": "Empresa Brasileira de Serviços Hospitalares" },
+            { "PROJETO": "HUMAP-UFMS", "CLIENTE": "Empresa Brasileira de Serviços Hospitalares" },
+            { "PROJETO": "HUJM-UFMT", "CLIENTE": "Empresa Brasileira de Serviços Hospitalares" },
+            { "PROJETO": "HU-UFGD", "CLIENTE": "Empresa Brasileira de Serviços Hospitalares" },
+            { "PROJETO": "HUCFF", "CLIENTE": "Empresa Brasileira de Serviços Hospitalares" },
+            { "PROJETO": "IPPMG", "CLIENTE": "Empresa Brasileira de Serviços Hospitalares" },
+            { "PROJETO": "ME-UFRJ", "CLIENTE": "Empresa Brasileira de Serviços Hospitalares" },
+            { "PROJETO": "HC-UFMG", "CLIENTE": "Empresa Brasileira de Serviços Hospitalares" },
+            { "PROJETO": "HC-UFU", "CLIENTE": "Empresa Brasileira de Serviços Hospitalares" },
+            { "PROJETO": "HC-UFTM", "CLIENTE": "Empresa Brasileira de Serviços Hospitalares" },
+            { "PROJETO": "HUAP-UFF", "CLIENTE": "Empresa Brasileira de Serviços Hospitalares" },
+            { "PROJETO": "HUCAM-UFES", "CLIENTE": "Empresa Brasileira de Serviços Hospitalares" },
+            { "PROJETO": "HUGG-UNIRIO", "CLIENTE": "Empresa Brasileira de Serviços Hospitalares" },
+            { "PROJETO": "HU-UFJF", "CLIENTE": "Empresa Brasileira de Serviços Hospitalares" },
+            { "PROJETO": "HU-UFSCAR", "CLIENTE": "Empresa Brasileira de Serviços Hospitalares" },
+            { "PROJETO": "INPI", "CLIENTE": "INSTITUTO NACIONAL DA PROPRIEDADE INDUSTRIAL - INPI" },
+            { "PROJETO": "NORTE ENERGIA S.A", "CLIENTE": "NORTE ENERGIA S.A" },
+            { "PROJETO": "SERVIÇO FEDERAL DE PROCESSAMENTO DE DADOS", "CLIENTE": "SERVICO FEDERAL DE PROCESSAMENTO DE DADOS (SERPRO)" },
+            { "PROJETO": "DETRAN-DF", "CLIENTE": "DETRAN - DF" },
+            { "PROJETO": "Contrato 90 - Expurgadas", "CLIENTE": "Agência Goiana de Infraestrutura e Transportes - Goinfra" }
+        ];
+
         // ========== FUNÇÕES PRINCIPAIS ==========
 
         // Abrir o popup
@@ -4197,8 +4471,12 @@
                 case 'config-outro':
                     titulo.textContent = 'Clonar Form para outro Projeto';
                     break;
-                case 'config-outro-cliente': // NOVO
+                case 'config-outro-cliente':
                     titulo.textContent = 'Clonar Form para outro Cliente/Projeto';
+                    // Inicializar o filtro quando este step for exibido
+                    setTimeout(function () {
+                        initFiltroCliente();
+                    }, 100);
                     break;
                 case 'confirm-outro':
                     titulo.textContent = 'Confirmar Clonagem';
@@ -4372,10 +4650,15 @@
             }
         }
 
-        // Iniciar clonagem para outro projeto (outro cliente)
         function iniciarClonagemOutroCliente() {
-            const cliente = document.getElementById("clienteDestino").value;
-            const destino = document.getElementById("projetoDestinoCliente").value;
+            const clienteSelect = document.getElementById("clienteDestino");
+            const cliente = clienteSelect.value;
+            const clienteNome = clienteSelect.options[clienteSelect.selectedIndex].text;
+
+            const projetoSelect = document.getElementById("projetoDestinoCliente");
+            const destino = projetoSelect.value;
+            const projetoNome = projetoSelect.options[projetoSelect.selectedIndex].text;
+
             const novoNome = document.getElementById("novoNomeFormCliente").value.trim();
 
             if (!cliente) {
@@ -4400,16 +4683,10 @@
             const qtdClonados = camposClonaveis.length;
             const qtdNaoClonados = singleFormOrigem.qtdCamposTotal - qtdClonados;
 
-            const selectCliente = document.getElementById("clienteDestino");
-            const nomeCliente = selectCliente.options[selectCliente.selectedIndex].text;
-
-            const selectDestino = document.getElementById("projetoDestinoCliente");
-            const nomeDestino = selectDestino.options[selectDestino.selectedIndex].text;
-
-            // Preencher labels de confirmação (reutilizando os mesmos elementos ou criando específicos)
+            // Preencher labels de confirmação
             document.getElementById("lblFormOrigemNome").innerText = singleFormOrigem.nome;
             document.getElementById("lblNovoFormNome").innerText = novoNome;
-            document.getElementById("lblProjetoDestino").innerText = nomeCliente + " / " + nomeDestino;
+            document.getElementById("lblProjetoDestino").innerText = clienteNome + " / " + projetoNome;
             document.getElementById("lblQtdOrigem").innerText = singleFormOrigem.qtdCamposTotal;
             document.getElementById("lblQtdClonados").innerText = qtdClonados;
             document.getElementById("lblQtdNaoClonados").innerText = qtdNaoClonados;
@@ -4418,6 +4695,7 @@
 
             mostrarStep('confirm-outro');
         }
+
         // Voltar para configuração (outro projeto)
         function voltarConfigOutro() {
             mostrarStep('config-outro');
@@ -4508,6 +4786,89 @@
                     allow_single_deselect: true,
                     width: '100%'
                 });
+            }
+        }
+
+        // Função para filtrar projetos com base no cliente selecionado
+        function filtrarProjetosPorCliente(clienteSelecionado, selectProjetos) {
+            // Limpar o select de projetos
+            selectProjetos.innerHTML = '';
+
+            // Adicionar opção padrão
+            var optionDefault = document.createElement('option');
+            optionDefault.value = '';
+            optionDefault.textContent = '-- Selecione o Projeto de Destino --';
+            selectProjetos.appendChild(optionDefault);
+
+            if (!clienteSelecionado || clienteSelecionado === '') {
+                // Se não houver cliente selecionado, mostrar mensagem
+                var optionMsg = document.createElement('option');
+                optionMsg.value = '';
+                optionMsg.textContent = '-- Selecione um cliente primeiro --';
+                optionMsg.disabled = true;
+                optionMsg.selected = true;
+                selectProjetos.appendChild(optionMsg);
+                return;
+            }
+
+            // Obter o nome do cliente selecionado (texto da opção)
+            var clienteSelect = document.getElementById('clienteDestino');
+            var clienteNome = '';
+            for (var i = 0; i < clienteSelect.options.length; i++) {
+                if (clienteSelect.options[i].value === clienteSelecionado) {
+                    clienteNome = clienteSelect.options[i].text;
+                    break;
+                }
+            }
+
+            console.log('Cliente selecionado:', clienteSelecionado, 'Nome:', clienteNome);
+
+            // Filtrar projetos do cliente
+            var projetosFiltrados = projetosPorCliente.filter(function (item) {
+                return item.CLIENTE === clienteNome || item.CLIENTE === clienteSelecionado;
+            });
+
+            console.log('Projetos encontrados:', projetosFiltrados.length);
+
+            if (projetosFiltrados.length === 0) {
+                // Cliente não tem projetos
+                var optionMsg = document.createElement('option');
+                optionMsg.value = '';
+                optionMsg.textContent = '-- Nenhum projeto encontrado para este cliente --';
+                optionMsg.disabled = true;
+                optionMsg.selected = true;
+                selectProjetos.appendChild(optionMsg);
+                return;
+            }
+
+            // Adicionar os projetos filtrados
+            projetosFiltrados.forEach(function (item) {
+                var option = document.createElement('option');
+                option.value = item.PROJETO;
+                option.textContent = item.PROJETO;
+                selectProjetos.appendChild(option);
+            });
+        }
+
+        // Evento para quando o cliente for alterado
+        function initFiltroCliente() {
+            var clienteSelect = document.getElementById('clienteDestino');
+            var projetoSelect = document.getElementById('projetoDestinoCliente');
+
+            if (clienteSelect && projetoSelect) {
+                // Remove qualquer evento anterior (se houver)
+                clienteSelect.removeEventListener('change', function () { });
+
+                // Adiciona o evento de mudança
+                clienteSelect.addEventListener('change', function () {
+                    var cliente = this.value;
+                    filtrarProjetosPorCliente(cliente, projetoSelect);
+                });
+
+                // Se já houver um cliente selecionado, filtra imediatamente
+                if (clienteSelect.value) {
+                    filtrarProjetosPorCliente(clienteSelect.value, projetoSelect);
+                }
             }
         }
 
